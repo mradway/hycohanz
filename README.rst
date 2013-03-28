@@ -1,0 +1,6 @@
+Hycohanz
+========
+
+Hycohanz is an Open Source (BSD license) Python wrapper interface 
+to the ANSYS HFSS Windows COM API, enabling you to control HFSS 
+from Python.
