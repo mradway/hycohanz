@@ -8,7 +8,6 @@ Example Usage
 >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
 >>> hfss.quit_application(oDesktop)
 
-@author: Matthew Radway
 """
 
 from __future__ import division, print_function, unicode_literals, absolute_import
@@ -67,3 +66,22 @@ def quit_application(oDesktop):
     
     """
     oDesktop.QuitApplication()
+
+def new_project(oDesktop):
+    """
+    Create a new project.  The new project becomes the active project.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        HFSS Desktop object in which to create the new project.
+        
+    Returns
+    -------
+    oProject : pywin32 COMObject
+        The created HFSS project.
+        
+    """
+    oProject = oDesktop.NewProject()
+    
+    return oProject
