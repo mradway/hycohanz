@@ -85,3 +85,25 @@ def new_project(oDesktop):
     oProject = oDesktop.NewProject()
     
     return oProject
+
+def set_active_editor(oDesign, editorname="3D Modeler"):
+    """
+    Set the active editor.
+    
+    Parameters
+    ----------
+    oDesign : pywin32 COMObject
+        The HFSS design upon which to operate.
+    editorname : str
+        Name of the editor to set as active.  As of this writing "3D Modeler" 
+        is the only known valid value.
+    
+    Returns
+    -------
+    oEditor : pywin32 COMObject
+        The HFSS Editor object.
+        
+    """
+    oEditor = oDesign.SetActiveEditor(editorname)
+    
+    return oEditor
