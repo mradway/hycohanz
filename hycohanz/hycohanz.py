@@ -107,3 +107,29 @@ def set_active_editor(oDesign, editorname="3D Modeler"):
     oEditor = oDesign.SetActiveEditor(editorname)
     
     return oEditor
+
+def insert_design(oProject, designname, solutiontype):
+    """
+    Insert an HFSS design.  The scripting interface doesn't appear to support 
+    creation of HFSS-IE designs at this time, or is undocumented.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS project in which the operation will be performed.
+    designname : str
+        Name of the design to insert.
+    solutiontype : str
+        Name of the solution type.  One of ("DrivenModal", 
+                                            "DrivenTerminal", 
+                                            "Eigenmode")
+        
+    Returns
+    -------
+    oDesign : pywin32 COMObject
+        The created HFSS design.
+        
+    """
+    oDesign = oProject.InsertDesign("HFSS", designname, solutiontype, "")
+    
+    return oDesign
