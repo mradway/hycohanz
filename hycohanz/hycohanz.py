@@ -133,3 +133,20 @@ def insert_design(oProject, designname, solutiontype):
     oDesign = oProject.InsertDesign("HFSS", designname, solutiontype, "")
     
     return oDesign
+
+def get_project_name(oProject):
+    """
+    Get the name of the specified project.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS project object upon which to operate.
+        
+    Returns
+    -------
+    str
+        The name of the project.
+        
+    """
+    return oProject.GetName()
