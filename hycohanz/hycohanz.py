@@ -150,3 +150,41 @@ def get_project_name(oProject):
         
     """
     return oProject.GetName()
+
+def close_project_byname(oDesktop, projectname):
+    """
+    Close the specified project using the given HFSS project object.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+    projectname : string
+        The name of the HFSS project to close.
+        
+    Returns
+    -------
+    None
+    
+    """
+    oDesktop.CloseProject(projectname)
+
+def close_project_byhandle(oDesktop, oProject):
+    """
+    Close the specified project using the given HFSS project object.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+    oProject : pywin32 COMObject
+        The HFSS project object upon which to operate.
+        
+    Returns
+    -------
+    None
+    
+    """
+    oDesktop.CloseProject(get_project_name(oProject))
+
+
