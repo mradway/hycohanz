@@ -238,3 +238,23 @@ def get_projects(oDesktop):
         
     """
     return oDesktop.GetProjects()
+
+def close_all_projects(oDesktop):
+    """
+    Close all open projects.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+        
+    Returns
+    -------
+    None
+    
+    """
+    objlist = get_projects(oDesktop)
+    
+    for item in objlist:
+        close_project_byhandle(oDesktop, item)
+
