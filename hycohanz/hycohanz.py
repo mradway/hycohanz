@@ -278,3 +278,67 @@ def close_all_projects_except_current(oDesktop):
     for item in projlist:
         if get_project_name(item) != currproj:
             close_project_byhandle(oDesktop, item)
+
+def insert_frequency_sweep(oDesign,
+                           setupname,
+                           sweepname,
+                           startvalue,
+                           stopvalue,
+                           stepsize,
+                           IsEnabled=True,
+                           SetupType="LinearStep",
+                           Type="Discrete",
+                           SaveFields=True,
+                           ExtrapToDC=False):
+    """
+    Insert an HFSS frequency sweep.
+    
+    Warning
+    -------
+    The API interface for this function is very susceptible to change!  It 
+    currently only works for Discrete sweeps using Linear Steps.  Contributions 
+    are encouraged.
+    
+    Parameters
+    ----------
+    oAnalysisSetup : pywin32 COMObject
+        The HFSS Analysis Setup Module in which to insert the sweep.
+    setupname : string
+        The name of the setup to add
+    sweepname : string
+        The desired name of the sweep
+    startvalue : float
+        Lowest frequency in Hz.
+    stopvalue : float
+        Highest frequency in Hz.
+    stepsize : flot
+        The frequency increment in Hz.
+    IsEnabled : bool
+        Whether the sweep is enabled.
+    SetupType : string
+        The type of sweep setup to add.  One of "LinearStep", "LinearCount", 
+        or "SinglePoints".  Currently only "LinearStep" is supported.
+    Type : string
+        The type of sweep to perform.  One of "Discrete", "Fast", or 
+        "Interpolating".  Currently only "Discrete" is supported.
+    Savefields : bool
+        Whether to save the fields.
+    ExtrapToDC : bool
+        Whether extrapolation to DC is enabled.
+        
+    Returns
+    -------
+    None
+    
+    """
+    oAnalysisSetup = oDesign.GetModule("AnalysisSetup")
+    return oAnalysisSetup.InsertFrequencySweep(setupname, 
+                                        ["NAME:" + sweepname, 
+                                         "IsEnabled:=", IsEnabled, 
+                                         "SetupType:=", SetupType, 
+                                         "StartValue:=", str(startvalue) + "Hz", 
+                                         "StopValue:=", str(stopvalue) + "Hz", 
+                                         "StepSize:=", str(stepsize) + "Hz", 
+                                         "Type:=", Type, 
+                                         "SaveFields:=", SaveFields, 
+                                         "ExtrapToDC:=", ExtrapToDC])
