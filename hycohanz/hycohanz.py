@@ -258,3 +258,23 @@ def close_all_projects(oDesktop):
     for item in objlist:
         close_project_byhandle(oDesktop, item)
 
+def close_all_projects_except_current(oDesktop):
+    """
+    Close all open projects except the active project.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+        
+    Returns
+    -------
+    None
+    
+    """
+    currproj = get_project_name(get_active_project(oDesktop))
+    projlist = get_projects(oDesktop)
+    
+    for item in projlist:
+        if get_project_name(item) != currproj:
+            close_project_byhandle(oDesktop, item)
