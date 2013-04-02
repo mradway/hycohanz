@@ -204,3 +204,21 @@ def get_active_project(oDesktop):
     """
     return oDesktop.GetActiveProject()
 
+def close_current_project(oDesktop):
+    """
+    Close the active project.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+        
+    Returns
+    -------
+    None
+    
+    """
+    oProject = get_active_project(oDesktop)
+    projectname = get_project_name(oProject)
+    oDesktop.CloseProject(projectname)
+
