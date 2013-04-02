@@ -6,7 +6,7 @@ raw_input('Press "Enter" to connect to HFSS.>')
 
 raw_input('Press "Enter" to create a new project.>')
 
-oProject = hfss.new_project()
+oProject = hfss.new_project(oDesktop)
 
 raw_input('Press "Enter" to insert a new DrivenModal design named HFSSDesign1.>')
 
