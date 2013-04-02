@@ -222,3 +222,19 @@ def close_current_project(oDesktop):
     projectname = get_project_name(oProject)
     oDesktop.CloseProject(projectname)
 
+def get_projects(oDesktop):
+    """
+    Get the list of open projects.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object upon which to operate.
+        
+    Returns
+    -------
+    oProject : list of pywin32 COMObjects
+        The HFSS desktop object upon which to operate.
+        
+    """
+    return oDesktop.GetProjects()
