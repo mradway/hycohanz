@@ -25,14 +25,14 @@ hfss.add_property(oDesign, "diam", hfss.Expression("1m"))
 
 raw_input('Press "Enter" to draw a circle using the properties.>')
 
-circle1 = hfss.create_circle(oEditor, hfss.Expression("xcenter"), 
-							hfss.Expression("ycenter"), 
-							hfss.Expression("zcenter"), 
-							hfss.Expression("diameter")/2)
+sphere1 = hfss.create_sphere(oEditor,   hfss.Expression("xcenter"), 
+										hfss.Expression("ycenter"), 
+										hfss.Expression("zcenter"), 
+										hfss.Expression("diameter")/2)
 
 raw_input("Press "Enter" to change the circle's material to copper>")
 
-hfss.assign_material(oEditor, [circle1], MaterialName="copper")
+hfss.assign_material(oEditor, [sphere1], MaterialName="copper")
 
 raw_input('Press "Enter" to quit HFSS.>')
 
