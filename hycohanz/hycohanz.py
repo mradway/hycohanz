@@ -18,6 +18,8 @@ import win32com.client
 
 warnings.simplefilter('default')
 
+from hycohanz.expression import Expression
+
 def setup_interface():
     """
     Set up the COM interface to the running HFSS process.
