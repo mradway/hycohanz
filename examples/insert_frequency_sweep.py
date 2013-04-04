@@ -12,8 +12,10 @@ raw_input('Press "Enter" to insert a new DrivenModal design named HFSSDesign1.>'
 
 oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
 
+setupname = hfss.insert_analysis_setup(oDesign, 1e9)
+
 hfss.insert_frequency_sweep(oDesign,
-                            "Setup1",
+                            setupname,
                             "Sweep1",
                             1e9,
                             2e9,
