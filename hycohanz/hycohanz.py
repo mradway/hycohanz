@@ -342,3 +342,32 @@ def insert_frequency_sweep(oDesign,
                                          "Type:=", Type, 
                                          "SaveFields:=", SaveFields, 
                                          "ExtrapToDC:=", ExtrapToDC])
+
+def get_module(oDesign, ModuleName):
+    """
+    Get a module handle for the given module.
+    
+    Parameters
+    ----------
+    oDesign : pywin32 COMObject
+        The HFSS design object upon which to operate.
+    ModuleName : str
+        Name of the module to return.  One of 
+            - "BoundarySetup"
+            - "MeshSetup"
+            - "AnalysisSetup"
+            - "Optimetrics"
+            - "Solutions"
+            - "FieldsReporter"
+            - "RadField"
+            - "UserDefinedSolutionModule"
+        
+    Returns
+    -------
+    oModule : pywin32 COMObject
+        Handle to the given module
+        
+    """
+    oModule = oDesign.GetModule(ModuleName)
+    
+    return oModule
