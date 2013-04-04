@@ -13,6 +13,31 @@ from Hyphasis.expression import Expression as Ex
 
 warnings.simplefilter('default')
 
+def assign_material(oEditor, partlist, MaterialName="vacuum", SolveInside=True):
+    """
+    Assign a material to the specified objects. Only the MaterialName and 
+    SolveInside parameters of <AttributesArray> are supported.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings to which the material is applied.
+    
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist)]
+    
+    attributesarray = ["NAME:Attributes", 
+                       "MaterialName:=", MaterialName, 
+                       "SolveInside:=", SolveInside]
+    
+    oEditor.AssignMaterial(selectionsarray, attributesarray)
+
 def create_circle(oEditor, xc, yc, zc, radius, 
                   WhichAxis='Z', 
                   NumSegments=0,
