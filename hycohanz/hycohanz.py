@@ -371,3 +371,58 @@ def get_module(oDesign, ModuleName):
     oModule = oDesign.GetModule(ModuleName)
     
     return oModule
+
+def insert_analysis_setup(oDesign, 
+                          Frequency,
+                          PortsOnly=True,
+                          MaxDeltaS=0.02,                       
+                          Name='Setup1',
+                          UseMatrixConv=False,
+                          MaximumPasses=20,
+                          MinimumPasses=2,
+                          MinimumConvergedPasses=2,
+                          PercentRefinement=30,
+                          IsEnabled=True,
+                          BasisOrder=2,
+                          UseIterativeSolver=False,
+                          DoLambdaRefine=True,
+                          DoMaterialLambda=True,
+                          SetLambdaTarget=True,
+                          Target=0.6667,
+                          UseMaxTetIncrease=False,
+                          PortAccuracy=2,
+                          UseABCOnPort=False,
+                          SetPortMinMaxTri=False,
+                          EnableSolverDomains=False,
+                          ThermalFeedback=False,
+                          NoAdditionalRefinementOnImport=False):
+    """
+    Insert an HFSS analysis setup.
+    """
+    oAnalysisSetup = get_module(oDesign, "AnalysisSetup")
+    oAnalysisSetup.InsertSetup( "HfssDriven", 
+                               ["NAME:" + Name, 
+                                "Frequency:=", str(Frequency) +"Hz", 
+                                "PortsOnly:=", PortsOnly, 
+                                "MaxDeltaS:=", MaxDeltaS, 
+                                "UseMatrixConv:=", UseMatrixConv, 
+                                "MaximumPasses:=", MaximumPasses, 
+                                "MinimumPasses:=", MinimumPasses, 
+                                "MinimumConvergedPasses:=", MinimumConvergedPasses, 
+                                "PercentRefinement:=", PercentRefinement, 
+                                "IsEnabled:=", IsEnabled, 
+                                "BasisOrder:=", BasisOrder, 
+                                "UseIterativeSolver:=", UseIterativeSolver, 
+                                "DoLambdaRefine:=", DoLambdaRefine, 
+                                "DoMaterialLambda:=", DoMaterialLambda, 
+                                "SetLambdaTarget:=", SetLambdaTarget, 
+                                "Target:=", Target, 
+                                "UseMaxTetIncrease:=", UseMaxTetIncrease, 
+                                "PortAccuracy:=", PortAccuracy, 
+                                "UseABCOnPort:=", UseABCOnPort, 
+                                "SetPortMinMaxTri:=", SetPortMinMaxTri, 
+                                "EnableSolverDomains:=", EnableSolverDomains, 
+                                "ThermalFeedback:=", ThermalFeedback, 
+                                "NoAdditionalRefinementOnImport:=", NoAdditionalRefinementOnImport])
+                                
+    return Name
