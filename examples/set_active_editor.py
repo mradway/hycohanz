@@ -14,7 +14,7 @@ oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
 
 raw_input('Press "Enter" to set the active editor to "3D Modeler" (The default and only known correct value).>')
 
-set_active_editor(oDesign)
+oEditor = hfss.set_active_editor(oDesign)
 
 raw_input('Press "Enter" to quit HFSS.>')
 
