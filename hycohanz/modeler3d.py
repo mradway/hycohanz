@@ -107,3 +107,72 @@ def create_circle(oEditor, xc, yc, zc, radius,
                        "Solveinside:=", Solveinside]
 
     return oEditor.CreateCircle(circleparams, attributesarray)
+
+def create_sphere(oEditor, x, y, z, radius,
+                  Name="Sphere1",
+                  Flags="",
+                  Color=(132, 132, 193),
+                  Transparency=0,
+                  PartCoordinateSystem="Global",
+                  UDMId="",
+                  MaterialValue='"vacuum"',
+                  SolveInside=True):
+    """
+    Create a sphere primitive.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    x : float or hycohanz Expression object
+        x position in Cartesian coordinates.
+    y : float or hycohanz Expression object
+        y position in Cartesian coordinates.
+    z : float or hycohanz Expression object
+        z position in Cartesian coordinates.
+    radius : float
+        The sphere radius.
+    Name : str
+        The requested name of the object.  HFSS doesn't necessarily honor this.
+    Flags : str
+        Flags to attach to the object.  See the HFSS help for explanation 
+        of this parameter.
+    Color : tuple of ints
+        The RGB indices corresponding to the desired color of the object.
+    Transparency : float between 0 and 1
+        Fractional transparency.  0 is opaque and 1 is transparent.
+    PartCoordinateSystem : str
+        The name of the coordinate system in which the object is drawn.
+    UDMId : str
+        Unknown use.  See HFSS documentation for explanation.
+    MaterialValue : str
+        Name of the material to assign to the object
+    SolveInside : bool
+        Whether to mesh the interior of the object and solve for the fields 
+        inside.
+        
+    Returns
+    -------
+    part : str
+        The actual name assigned by HFSS to the part.
+        
+    """
+    sphereparametersarray = ["NAME:SphereParameters", 
+                             "XCenter:=", Ex(x).expr, 
+                             "YCenter:=", Ex(y).expr, 
+                             "ZCenter:=", Ex(z).expr, 
+                             "Radius:=", Ex(radius).expr]
+    
+    attributesarray = ["NAME:Attributes", 
+                       "Name:=",  Name, 
+                       "Flags:=", Flags, 
+                       "Color:=", "({r} {g} {b})".format(r=Color[0], g=Color[1], b=Color[2]), 
+                       "Transparency:=", Transparency, 
+                       "PartCoordinateSystem:=", PartCoordinateSystem, 
+                       "UDMId:=", UDMId, 
+                       "MaterialValue:=", MaterialValue, 
+                       "SolveInside:=", SolveInside]
+    
+    part = oEditor.CreateSphere(sphereparametersarray, attributesarray)
+    
+    return part
