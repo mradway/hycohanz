@@ -43,6 +43,47 @@ If the docstrings and examples are not sufficient, you will find that
 many functions consist of five or fewer lines of simple (almost trivial) 
 code that are easily understood.
 
+Frequently Asked Questions
+--------------------------
+
+Q. Why not write scripts using Visual Basic for Applications (VBA) or JavaScript (JS)?
+A. I've found that programming in Python is generally much, much easier and more 
+   powerful than in either of these languages.  Plus, I've generally found that 
+   Visual Basic scripts run inside HFSS tend to break without useful error 
+   messages, or worse, crash HFSS entirely.  hycohanz can also crash HFSS. But 
+   when it does, the Python interpreter gives you a nice stack trace, allowing 
+   you to determine what went wrong.
+
+Q. Why use Windows COM instead of .NET?
+A. As I understand it, the Visual Basic examples in the HFSS Scripting Guide 
+   use Windows COM, so that's what I use.  If you're using IronPython, then 
+   accessing .NET resources should be trivial.  However, I don't use IronPython 
+   since I make extensive use in my daily work of numpy, scipy, matplotlib, 
+   h5py, etc., and IronPython has had issues integrating with these tools 
+   in the past.
+
+Q. Why not metaprogram VBA or JS?  Then I could use this library on Linux.
+A. That was my initial approach, because I wanted cross-platform capability.  
+   Compared to the Windows COM approach, it's a lot more time-consuming, and 
+   it has all of the drawbacks of the first question.
+
+Q. Why did you use Python instead of MATLAB?
+A. I'm a recent convert to Python, so I now use Python in my daily workflow 
+   whenever it's convenient (that means about 99.9% of the time). Python 
+   gives you keyword arguments, which helps keep the average length in characters 
+   of a hycohanz function call to a minimum, while minimizing implementation 
+   overhead compared to MATLAB.
+
+Q. Why not skip the HFSS interface entirely and directly emit a .hfss file?  Then 
+   I could use this library on Linux.
+A. I've also considered this approach.  As you may know, .hfss files are 
+   quasi-human-readable text files with a file format that could in principle be 
+   reasonably parsed and emitted.  However, the expected implementation effort 
+   would have been quite a bit higher than I wanted.  Not to mention that the format is not 
+   (to my knowledge) static, nor is it publicly specified or documented.  Thus, an 
+   implementation of this approach would be expected to be fragile, crash HFSS 
+   frequently, and leave non-useful error messages.
+
 Contributing
 ------------
 
