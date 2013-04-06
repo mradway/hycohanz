@@ -19,6 +19,7 @@ import win32com.client
 warnings.simplefilter('default')
 
 from hycohanz.expression import Expression
+from hycohanz.modeler3d import *
 
 def setup_interface():
     """
@@ -457,3 +458,23 @@ def add_property(oDesign, name, value):
     proptabarray = ["NAME:LocalVariableTab", propserversarray, newpropsarray]
           
     oDesign.ChangeProperty(["NAME:AllTabs", proptabarray])
+
+def assign_perfect_e(oDesign, boundaryname, facelist):
+    """
+    Create a perfect E boundary.
+    
+    Parameters
+    ----------
+    oBoundarySetupModule : pywin32 COMObject
+        The HFSS BoundarySetup module obtained with get_module().
+    boundaryname : str
+        The name to give this boundary in the Boundaries tree.
+    facelist : list of ints
+        The faces to assign to this boundary condition.
+    
+    Returns
+    -------
+    None
+    """
+    oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
+    oBoundarySetupModule.AssignPerfectE(["Name:" + boundaryname, "Faces:=", facelist])
