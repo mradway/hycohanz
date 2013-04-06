@@ -12,18 +12,29 @@ hycohanz is pre-alpha software.  The interfaces can be expected to
 break constantly.  If you are looking for a stable, reliable 
 function library for HFSS, you must look elsewhere for now.
 
+Download
+--------
+
+A zip file of the development branch can be downloaded from 
+https://github.com/mradway/hycohanz/archive/devel.zip
+
+Of course, one can also pull the source tree in the usual way using git.
+
+Installation
+------------
+See http://mradway.github.io/hycohanz/ for detailed installation instructions.  
+This page also has a minimal example that can be used to test hycohanz 
+once installation is complete.  
+
 Documentation
 -------------
 
-See http://mradway.github.io/hycohanz/ for installation instructions.  
-This page also has a minimal example that can be used to test hycohanz 
-once installation is complete.  Several more basic examples can be 
-found in the examples directory.
+Several basic examples can be found in the examples directory.
 
 Most wrapper functions are documented with useful docstrings, and in most 
-cases the their interfaces tend to follow the HFSS API fairly closely.
+cases their interfaces tend to follow the HFSS API fairly closely.
 
-For best use of this library you really should familiarize yourself with the 
+For best use of this library you should familiarize yourself with the 
 information in the HFSS Scripting Guide, available in the HFSS GUI under 
 Help->Scripting Contents.  The library is intended to be used in consultation 
 with this resource.
