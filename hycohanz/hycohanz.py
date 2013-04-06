@@ -465,8 +465,8 @@ def assign_perfect_e(oDesign, boundaryname, facelist):
     
     Parameters
     ----------
-    oBoundarySetupModule : pywin32 COMObject
-        The HFSS BoundarySetup module obtained with get_module().
+    oDesign : pywin32 COMObject
+        The HFSS design to which this function is applied.
     boundaryname : str
         The name to give this boundary in the Boundaries tree.
     facelist : list of ints
@@ -478,3 +478,23 @@ def assign_perfect_e(oDesign, boundaryname, facelist):
     """
     oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
     oBoundarySetupModule.AssignPerfectE(["Name:" + boundaryname, "Faces:=", facelist])
+
+def assign_perfect_h(oDesign, boundaryname, facelist):
+    """
+    Create a perfect H boundary.
+    
+    Parameters
+    ----------
+    oDesign : pywin32 COMObject
+        The HFSS design to which this function is applied.
+    boundaryname : str
+        The name to give this boundary in the Boundaries tree.
+    facelist : list of ints
+        The faces to assign to this boundary condition.
+    
+    Returns
+    -------
+    None
+    """
+    oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
+    oBoundarySetupModule.AssignPerfectH(["Name:" + boundaryname, "Faces:=", facelist])
