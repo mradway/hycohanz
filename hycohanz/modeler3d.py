@@ -9,7 +9,7 @@ from __future__ import division, print_function, unicode_literals, absolute_impo
 
 import warnings
 
-from Hyphasis.expression import Expression as Ex
+from hycohanz.expression import Expression as Ex
 
 warnings.simplefilter('default')
 
@@ -96,7 +96,7 @@ def create_circle(oEditor, xc, yc, zc, radius,
                     "Radius:=", Ex(radius).expr, 
                     "WhichAxis:=", str(WhichAxis), 
                     "NumSegments:=", str(NumSegments)]
-                    
+
     attributesarray = ["NAME:Attributes", 
                        "Name:=", Name, 
                        "Flags:=", Flags, 
