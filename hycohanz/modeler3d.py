@@ -176,3 +176,189 @@ def create_sphere(oEditor, x, y, z, radius,
     part = oEditor.CreateSphere(sphereparametersarray, attributesarray)
     
     return part
+
+def create_polyline(oEditor, x, y, z, Name="Polyline1", 
+                                Flags="", 
+                                Color="(132 132 193)", 
+                                Transparency=0, 
+                                PartCoordinateSystem="Global", 
+                                UDMId="", 
+                                MaterialValue='"vacuum"', 
+                                SolveInside=True, 
+                                IsPolylineCovered=True, 
+                                IsPolylineClosed=True, 
+                                XSectionBendType="Corner", 
+                                XSectionNumSegments="0", 
+                                XSectionHeight="0mm", 
+                                XSectionTopWidth="0mm", 
+                                XSectionWidth="0mm",
+                                XSectionOrient="Auto",
+                                XSectionType="None",
+                                SegmentType="Line",
+                                NoOfPoints=2):
+    """ 
+    Draw a polyline.
+    
+    Warning:  HFSS apparently throws an exception whenever IsPolylineClosed=False
+    Warning:  HFSS 13 crashes when you click on the last segment in the model tree.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which to perform the operation
+    x : array_like
+        The x locations of the polyline vertices. Can have numeric or string elements.
+    y : array_like
+        The y locations of the polyline vertices. Can have numeric or string elements.
+    z : array_like
+        The z locations of the polyline vertices. Can have numeric or string elements.
+    Name : str
+        Requested name of the polyline
+    Flags : str
+        Certain flags that can be set.  See HFSS Scripting Manual for details.
+    Transparency : float
+        Fractional transparency of the object.  0 is opaque, 1 is transparent.
+    PartCoordinateSystem : str
+        Coordinate system to use in constructing the object.
+    UDMId : str
+        TODO:  Add documentation here.
+    MaterialValue : str
+        Name of the material to assign to the object.
+    SolveInside : bool
+        Whether fields are computed inside the object.
+    IsPolylineCovered : bool
+        Whether the polyline is covered.
+    IsPolylineClosed : bool
+        Whether the polyline should be considered closed.
+    TODO:  finish documentation of this function.
+        
+    Returns
+    -------
+    polyname : str
+        Actual name of the polyline
+        
+    
+    x, y, and z are lists with numeric or string elements.
+    
+    Example Usage
+    -------------
+    >>> import Hyphasis as hfss
+    >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
+    >>> oProject = hfss.new_project(oDesktop)
+    >>> oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
+    >>> oEditor = hfss.set_active_editor(oDesign, "3D Modeler")
+    >>> tri = hfss.create_polyline(oEditor, [0, 1, 0], [0, 0, 1], [0, 0, 0])
+    """
+    # Augment the polyline points vector by appending the first element to 
+    # the last.  This gives polyline points and N - 1 segments
+    xv = list(x) + [list(x)[0]]
+    yv = list(y) + [list(y)[0]]
+    zv = list(z) + [list(z)[0]]
+    
+#    print('xv:  ' + str(xv))
+    
+    Npts = len(xv)
+#    print("Npts: " + str(Npts))
+    
+#    plpoint = []
+    polylinepoints = ["NAME:PolylinePoints"]
+    
+    for n in range(0, Npts):
+        if isinstance(xv[n], str):
+            xpt = xv[n]
+        elif isinstance(xv[n], (float, int)):
+            xpt = str(xv[n]) + "meter"
+        elif isinstance(xv[n], Ex):
+            xpt = xv[n].expr
+        else:
+            raise TypeError('xv must be of type str, int, float, or Ex')
+            
+        if isinstance(yv[n], str):
+            ypt = yv[n]
+        elif isinstance(yv[n], (float, int)):
+            ypt = str(yv[n]) + "meter"
+        elif isinstance(yv[n], Ex):
+            ypt = yv[n].expr
+        else:
+            raise TypeError('yv must be of type str, int, float, or Ex')
+            
+        if isinstance(zv[n], str):
+            zpt = zv[n]
+        elif isinstance(zv[n], (float, int)):
+            zpt = str(zv[n]) + "meter"
+        elif isinstance(zv[n], Ex):
+            zpt = zv[n].expr
+        else:
+            raise TypeError('zv must be of type str, int, float, or Ex')
+        
+#        print('xpt:  ' + str(xpt))
+#        print('ypt:  ' + str(ypt))
+#        print('zpt:  ' + str(zpt))
+        polylinepoints.append([["NAME:PLPoint", 
+                        "X:=", xpt, 
+                        "Y:=", ypt, 
+                        "Z:=", zpt]])
+    
+#    plpoint[0] = ["NAME:PLPoint", "X:=", "-1mm", "Y:=", "0mm", "Z:=", "0mm"]
+#    plpoint[1] = ["NAME:PLPoint", "X:=", "0mm", "Y:=", "1mm", "Z:=", "0mm"]
+#    plpoint[2] = ["NAME:PLPoint", "X:=", "1mm", "Y:=", "0mm", "Z:=", "0mm"]
+
+#    polylinepoints.append(plpoint)
+#    print(polylinepoints)
+    
+##    polylinepoints = ["NAME:PolylinePoints", plpoint[0], plpoint[1], plpoint[2]]
+#    plsegment = []
+    polylinesegments = ["NAME:PolylineSegments"]
+    if IsPolylineClosed == True:
+        Nsegs = Npts - 1 
+    else:
+        Nsegs = Npts - 1
+    
+#    print("Nsegs: " + str(Nsegs))    
+    for n in range(0, Nsegs):
+        polylinesegments.append(["NAME:PLSegment", 
+                                 "SegmentType:=", SegmentType, 
+                                 "StartIndex:=", n, 
+                                 "NoOfPoints:=", NoOfPoints])
+        
+#    print(plsegment)
+        
+#    plsegment1 = ["NAME:PLSegment", "SegmentType:=", "Line", "StartIndex:=", 0, "NoOfPoints:=", 2]
+#    plsegment2 = ["NAME:PLSegment", "SegmentType:=", "Line", "StartIndex:=", 1, "NoOfPoints:=", 2]
+#    plsegment3 = ["NAME:PLSegment", "SegmentType:=", "Line", "StartIndex:=", 2, "NoOfPoints:=", 2]
+    
+#    polylinesegments = ["NAME:PolylineSegments", plsegment1, plsegment2, plsegment3]
+
+#    polylinesegments.append(plsegment)
+    
+#    print(polylinesegments)
+    
+    polylinexsection = ["NAME:PolylineXSection", 
+                        "XSectionType:=", XSectionType, 
+                        "XSectionOrient:=", XSectionOrient, 
+                        "XSectionWidth:=", XSectionWidth, 
+                        "XSectionTopWidth:=", XSectionTopWidth, 
+                        "XSectionHeight:=", XSectionHeight, 
+                        "XSectionNumSegments:=", XSectionNumSegments, 
+                        "XSectionBendType:=", XSectionBendType]
+
+    polylineparams = ["NAME:PolylineParameters", 
+                      "IsPolylineCovered:=", IsPolylineCovered, 
+                      "IsPolylineClosed:=", IsPolylineClosed, 
+                      polylinepoints, 
+                      polylinesegments]#, 
+#                      polylinexsection]
+
+    polylineattribs = ["NAME:Attributes", 
+                       "Name:=", Name, 
+                       "Flags:=", Flags, 
+                       "Color:=", Color,
+                       "Transparency:=", Transparency, 
+                       "PartCoordinateSystem:=", PartCoordinateSystem, 
+                       "UDMId:=", UDMId, 
+                       "MaterialValue:=", MaterialValue, 
+                       "SolveInside:=",  SolveInside]
+    
+    polyname = oEditor.CreatePolyline(polylineparams, polylineattribs)
+
+    return polyname
