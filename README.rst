@@ -12,6 +12,11 @@ hycohanz is pre-alpha software.  The interfaces can be expected to
 break constantly.  If you are looking for a stable, reliable 
 function library for HFSS, you must look elsewhere for now.
 
+Documentation
+-------------
+
+See http://mradway.github.io/hycohanz/
+
 Contributing
 ------------
 
