@@ -362,3 +362,19 @@ def create_polyline(oEditor, x, y, z, Name="Polyline1",
     polyname = oEditor.CreatePolyline(polylineparams, polylineattribs)
 
     return polyname
+
+def get_selections(oEditor):
+    """
+    Get a list of the currently-selected objects in the design.  
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+        
+    Returns
+    -------
+    selectionlist : list
+        List of the selectable objects in the design?
+    """
+    return oEditor.GetSelections()
