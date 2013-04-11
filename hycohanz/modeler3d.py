@@ -378,3 +378,36 @@ def get_selections(oEditor):
         List of the selectable objects in the design?
     """
     return oEditor.GetSelections()
+
+def move(oEditor, partlist, x, y, z, NewPartsModelFlag="Model"):
+    """
+    Move specified parts.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings to be mirrored.
+    x : float
+        x displacement in Cartesian coordinates.
+    y : float
+        y displacement in Cartesian coordinates.
+    z : float
+        z displacement in Cartesian coordinates.
+        
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist), 
+                       "NewPartsModelFlag:=", NewPartsModelFlag]
+                      
+    moveparametersarray = ["NAME:TranslateParameters", 
+                           "TranslateVectorX:=", str(Ex(x).expr), 
+                           "TranslateVectorY:=", str(Ex(y).expr), 
+                           "TranslateVectorZ:=", str(Ex(z).expr)]
+    
+    oEditor.Move(selectionsarray, moveparametersarray)
+
