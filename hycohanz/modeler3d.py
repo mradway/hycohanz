@@ -411,3 +411,40 @@ def move(oEditor, partlist, x, y, z, NewPartsModelFlag="Model"):
     
     oEditor.Move(selectionsarray, moveparametersarray)
 
+def copy(oEditor, partlist):
+    """
+    Copy specified parts to the clipboard.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS Editor in which to perform the operation
+    partlist : list of strings
+        The parts to copy
+        
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist), 
+                       "NewPartsModelFlag:=", "Model"]
+                       
+    oEditor.Copy(selectionsarray)
+    
+def paste(oEditor):
+    """
+    Paste a design in the active project from the clipboard.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS Editor in which to perform the operation
+
+    Returns
+    -------
+    pastelist : list
+        List of parts that are pasted
+    """
+    pastelist = oEditor.Paste()
+    return pastelist
