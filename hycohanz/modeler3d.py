@@ -511,3 +511,36 @@ def rotate(oEditor, partlist, axis, angle):
                              "RotateAngle:=", Ex(angle).expr]
                              
     oEditor.Rotate(selectionsarray, rotateparametersarray)
+
+def scale(oEditor, partlist, x, y, z):
+    """
+    Scale specified parts.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings to be scaled.
+    x : float
+        x scaling factor in Cartesian coordinates.
+    y : float
+        y scaling factor in Cartesian coordinates.
+    z : float
+        z scaling factor in Cartesian coordinates.
+        
+    Returns
+    -------
+    None
+    """
+    selections = ", ".join(partlist)
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", selections, 
+                       "NewPartsModelFlag:=", "Model"]
+  
+    scaleparametersarray = ["NAME:ScaleParameters", 
+                            "ScaleX:=", str(x), 
+                            "ScaleY:=", str(y), 
+                            "ScaleZ:=", str(z)]
+  
+    oEditor.Scale(selectionsarray, scaleparametersarray)
