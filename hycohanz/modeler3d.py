@@ -448,3 +448,38 @@ def paste(oEditor):
     """
     pastelist = oEditor.Paste()
     return pastelist
+
+def mirror(oEditor, partlist, base, normal):
+    """
+    Mirror specified parts about a given base point with respect to a given 
+    plane.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings to be mirrored.
+    base : list
+        Mirror base point in Cartesian coordinates.
+    normal : list
+        Mirror plane normal in Cartesian coordinates.
+        
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist), 
+                       "NewPartsModelFlag:=", "Model"]
+                       
+    mirrorparamsarray = ["NAME:MirrorParameters", 
+                         "MirrorBaseX:=", str(base[0]) + "meter", 
+                         "MirrorBaseY:=", str(base[1]) + "meter", 
+                         "MirrorBaseZ:=", str(base[2]) + "meter", 
+                         "MirrorNormalX:=", str(normal[0]) + "meter", 
+                         "MirrorNormalY:=", str(normal[1]) + "meter", 
+                         "MirrorNormalZ:=", str(normal[2]) + "meter"]
+                       
+    oEditor.Mirror(selectionsarray, mirrorparamsarray)
+
