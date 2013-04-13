@@ -483,3 +483,31 @@ def mirror(oEditor, partlist, base, normal):
                        
     oEditor.Mirror(selectionsarray, mirrorparamsarray)
 
+def rotate(oEditor, partlist, axis, angle):
+    """
+    Rotate specified parts.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings to be rotated.
+    axis : str
+        Rotation axis.
+    angle : float
+        Rotation angle in radians
+   
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist), 
+                       "NewPartsModelFlag:=", "Model"]
+                       
+    rotateparametersarray = ["NAME:RotateParameters", 
+                             "RotateAxis:=", axis, 
+                             "RotateAngle:=", Ex(angle).expr]
+                             
+    oEditor.Rotate(selectionsarray, rotateparametersarray)
