@@ -477,7 +477,7 @@ def assign_perfect_e(oDesign, boundaryname, facelist, InfGroundPlane=False):
     None
     """
     oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
-    oBoundarySetupModule.AssignPerfectE(["Name:" + boundaryname, "Faces:=", facelist])
+    oBoundarySetupModule.AssignPerfectE(["Name:" + boundaryname, "Faces:=", facelist, "InfGroundPlane:=", InfGroundPlane])
 
 def assign_perfect_h(oDesign, boundaryname, facelist):
     """
