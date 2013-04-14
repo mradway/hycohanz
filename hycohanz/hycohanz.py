@@ -459,7 +459,7 @@ def add_property(oDesign, name, value):
           
     oDesign.ChangeProperty(["NAME:AllTabs", proptabarray])
 
-def assign_perfect_e(oDesign, boundaryname, facelist):
+def assign_perfect_e(oDesign, boundaryname, facelist, InfGroundPlane=False):
     """
     Create a perfect E boundary.
     
