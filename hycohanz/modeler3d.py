@@ -38,6 +38,86 @@ def assign_material(oEditor, partlist, MaterialName="vacuum", SolveInside=True):
     
     oEditor.AssignMaterial(selectionsarray, attributesarray)
 
+def create_rectangle(   oEditor, 
+                        xs, 
+                        ys, 
+                        zs, 
+                        width, 
+                        height, 
+                        WhichAxis='Z', 
+                        Name='Rectangle1', 
+                        Flags='', 
+                        Color=(132, 132, 193), 
+                        Transparency=0, 
+                        PartCoordinateSystem='Global',
+                        UDMId='',
+                        MaterialValue='"vacuum"',
+                        SolveInside=True,
+                        IsCovered=True):
+    """
+    Draw a rectangle.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    xs : float or hycohanz Expression object
+    ys : float or hycohanz Expression object
+    zs : float or hycohanz Expression object
+        The x, y, and z coordinates of the center of the circle.
+    width : float or hycohanz Expression object
+        x-dimension of the rectangle
+    height : float or hycohanz Expression object
+        y-dimension of the rectangle
+    WhichAxis : str
+        The axis normal to the circle.  Can be 'X', 'Y', or 'Z'.
+    Name : str
+        The requested name of the object.  If this is not available, HFSS 
+        will assign a different name, which is returned by this function.
+    Flags : str
+        Flags associated with this object.  See HFSS help for details.
+    Color : tuple of length=3
+        RGB components of the circle
+    Transparency : float between 0 and 1
+        Fractional transparency.  0 is opaque and 1 is transparent.
+    PartCoordinateSystem : str
+        The name of the coordinate system in which the object is drawn.
+    MaterialName : str
+        Name of the material to assign to the object.  Name must be surrounded 
+        by double quotes.
+    SolveInside : bool
+        Whether to mesh the interior of the object and solve for the fields 
+        inside.
+    IsCovered : bool
+        Whether the rectangle is has a surface or has only edges.
+        
+    Returns
+    -------
+    str
+        The actual name of the created object.
+        
+    """
+    RectangleParameters = [ "NAME:RectangleParameters",
+                            "IsCovered:=", IsCovered,
+                            "XStart:=", Ex(xs).expr,
+                            "YStart:=", Ex(ys).expr,
+                            "ZStart:=", Ex(zs).expr,
+                            "Width:=", Ex(width).expr,
+                            "Height:=", Ex(height).expr,
+                            "WhichAxis:=", WhichAxis]
+
+    Attributes = [  "NAME:Attributes",
+                    "Name:=", Name,
+                    "Flags:=", Flags,
+                    "Color:=", "({r} {g} {b})".format(r=Color[0], g=Color[1], b=Color[2]),
+                    "Transparency:=", Transparency,
+                    "PartCoordinateSystem:=", PartCoordinateSystem,
+                    "UDMId:=", UDMId,
+                    "MaterialValue:=", MaterialValue,
+                    "SolveInside:=", SolveInside]
+                    
+    return oEditor.CreateRectangle(RectangleParameters, Attributes)
+
 def create_circle(oEditor, xc, yc, zc, radius, 
                   WhichAxis='Z', 
                   NumSegments=0,
