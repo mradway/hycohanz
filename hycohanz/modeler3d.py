@@ -592,6 +592,45 @@ def rotate(oEditor, partlist, axis, angle):
                              
     oEditor.Rotate(selectionsarray, rotateparametersarray)
 
+def subtract(oEditor, blanklist, toollist, KeepOriginals=False):
+    """
+    Subtract the specified objects.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.        
+    partlist : list
+        List of part name strings to be subtracted.
+    toollist : list
+        List of part name strings to subtract from partlist.
+    KeepOriginals : bool
+        Whether to clone the tool parts.
+    
+    Returns
+    -------
+    objname : str
+        Name of object created by the subtract operation
+    """
+#    blankliststr = ""
+#    for item in blanklist:
+#        blankliststr += (',' + item)
+#        
+#    toolliststr = ""
+#    for item in toollist:
+#        toolliststr += (',' + item)
+    
+    subtractselectionsarray = ["NAME:Selections", 
+                               "Blank Parts:=", ','.join(blanklist), 
+                               "Tool Parts:=", ','.join(toollist)]
+    
+    subtractparametersarray = ["NAME:SubtractParameters", 
+                               "KeepOriginals:=", KeepOriginals]
+    
+    oEditor.Subtract(subtractselectionsarray, subtractparametersarray)
+    
+    return blanklist[0]
+
 def scale(oEditor, partlist, x, y, z):
     """
     Scale specified parts.
