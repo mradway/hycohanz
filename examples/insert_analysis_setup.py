@@ -17,3 +17,8 @@ setupname = hfss.insert_analysis_setup(oDesign, 1e9)
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp

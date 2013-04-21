@@ -24,3 +24,16 @@ oUserDefinedSolutionModule = hfss.get_module(oDesign, "UserDefinedSolutionModule
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oBoundarySetup
+del oMeshSetup
+del oAnalysisSetup
+del oOptimetrics
+del oSolutions
+del oFieldsReporter
+del oRadField
+del oUserDefinedSolutionModule
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp

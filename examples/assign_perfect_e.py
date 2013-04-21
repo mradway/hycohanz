@@ -44,3 +44,9 @@ hfss.assign_perfect_e(oDesign, "PerfectE1", [10])
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oEditor
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp

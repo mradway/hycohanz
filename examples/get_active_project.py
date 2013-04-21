@@ -22,3 +22,10 @@ hfss.close_project_byname(oDesktop, projectname)
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oEditor
+del oDesign
+del oProject2
+del oProject
+del oDesktop
+del oAnsoftApp

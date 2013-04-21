@@ -19,3 +19,9 @@ hfss.add_property(oDesign, "length", hfss.Expression("1m"))
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oEditor
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp

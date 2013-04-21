@@ -21,3 +21,8 @@ print(projectlist)
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oProject2
+del oProject
+del oDesktop
+del oAnsoftApp

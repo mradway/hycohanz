@@ -5,3 +5,6 @@ import hycohanz as hfss
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oDesktop
+del oAnsoftApp

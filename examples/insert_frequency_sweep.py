@@ -29,3 +29,8 @@ hfss.insert_frequency_sweep(oDesign,
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp
