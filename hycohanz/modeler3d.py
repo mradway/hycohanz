@@ -529,6 +529,21 @@ def paste(oEditor):
     pastelist = oEditor.Paste()
     return pastelist
 
+def imprint(oEditor, blanklist, toollist, KeepOriginals=False):
+    """
+    Imprint an object onto another object.
+    
+    Note:  This function is undocumented in the HFSS Scripting Guide.
+    """
+    imprintselectionsarray = [ "NAME:Selections", 
+                               "Blank Parts:=", ','.join(blanklist), 
+                               "Tool Parts:=", ','.join(toollist)]
+    
+    imprintparams = ["NAME:ImprintParameters", 
+                     "KeepOriginals:=", KeepOriginals]
+    
+    return oEditor.Imprint(imprintselectionsarray, imprintparams)
+
 def mirror(oEditor, partlist, base, normal):
     """
     Mirror specified parts about a given base point with respect to a given 
