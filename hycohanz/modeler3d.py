@@ -594,6 +594,44 @@ def mirror(oEditor, partlist, base, normal):
                        
     oEditor.Mirror(selectionsarray, mirrorparamsarray)
 
+def sweep_along_vector(oEditor, obj_name_list, x, y, z):
+    """
+    Sweeps the specified 1D or 2D parts along a vector.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    obj_name_list : list
+        List of part name strings to be scaled.
+    x : float
+        x component of the sweep vector.
+    y : float
+        y component of the sweep vector.
+    z : float
+        z component of the sweep vector.
+        
+    Returns
+    -------
+    None
+    """
+    selections = ", ".join(obj_name_list)
+    
+#    print(selections)
+    
+    oEditor.SweepAlongVector(["NAME:Selections", 
+                              "Selections:=", selections, 
+                              "NewPartsModelFlag:=", "Model"], 
+                             ["NAME:VectorSweepParameters", 
+                              "DraftAngle:=", "0deg", 
+                              "DraftType:=", "Round", 
+                              "CheckFaceFaceIntersection:=", False, 
+                              "SweepVectorX:=", Ex(x).expr, 
+                              "SweepVectorY:=", Ex(y).expr, 
+                              "SweepVectorZ:=", Ex(z).expr])
+
+    return get_selections(oEditor)
+
 def rotate(oEditor, partlist, axis, angle):
     """
     Rotate specified parts.
