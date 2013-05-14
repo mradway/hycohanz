@@ -30,7 +30,7 @@ Quick Install
 
 Installation is easy if you already have HFSS, Python, and the pywin32 Python package:
 
-1. Download the .zip file from Github:  https://mradway.github.com/hycohanz
+1. Download the .zip file from Github:  https://github.com/mradway/hycohanz/archive/devel.zip
 
 2. Unzip to a convenient location.
 
