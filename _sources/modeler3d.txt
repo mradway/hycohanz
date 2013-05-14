@@ -1,0 +1,5 @@
+3D Modeler Functions
+====================
+
+.. automodule:: hycohanz.modeler3d
+   :members:

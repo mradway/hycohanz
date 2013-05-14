@@ -48,7 +48,9 @@ Contents
    
    install
    modules
-   reference
+   hycohanz
+   expression
+   modeler3d
 
 Indices and tables
 ------------------

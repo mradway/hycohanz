@@ -1,1 +1,11 @@
-.. autofunction:: hycohanz.setup_interface
+hycohanz
+========
+
+.. automodule:: hycohanz.hycohanz
+   :members:
+
+.. automodule:: hycohanz.expression
+   :members:
+
+.. automodule:: hycohanz.modeler3d
+   :members:

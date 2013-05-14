@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3D Modeler Functions &mdash; hycohanz 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="hycohanz 0.1 documentation" href="index.html" />
+    <link rel="prev" title="The Expression Class" href="expression.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expression.html" title="The Expression Class"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="expression.html"
+                        title="previous chapter">The Expression Class</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/modeler3d.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-hycohanz.modeler3d">
+<span id="d-modeler-functions"></span><h1>3D Modeler Functions<a class="headerlink" href="#module-hycohanz.modeler3d" title="Permalink to this headline">¶</a></h1>
+<p>hycohanz modeler3d</p>
+<dl class="function">
+<dt id="hycohanz.modeler3d.assign_material">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">assign_material</tt><big>(</big><em>oEditor</em>, <em>partlist</em>, <em>MaterialName=u'vacuum'</em>, <em>SolveInside=True</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.assign_material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a material to the specified objects. Only the MaterialName and 
+SolveInside parameters of &lt;AttributesArray&gt; are supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to which the material is applied.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.copy">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">copy</tt><big>(</big><em>oEditor</em>, <em>partlist</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy specified parts to the clipboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS Editor in which to perform the operation</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list of strings</p>
+<blockquote>
+<div><p>The parts to copy</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.create_circle">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">create_circle</tt><big>(</big><em>oEditor</em>, <em>xc</em>, <em>yc</em>, <em>zc</em>, <em>radius</em>, <em>WhichAxis=u'Z'</em>, <em>NumSegments=0</em>, <em>Name=u'Circle1'</em>, <em>Flags=u''</em>, <em>Color=(132</em>, <em>132</em>, <em>193)</em>, <em>Transparency=0</em>, <em>PartCoordinateSystem=u'Global'</em>, <em>MaterialName=u'&quot;vacuum&quot;'</em>, <em>Solveinside=True</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.create_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a circle primitive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>xc</strong> : float or hycohanz Expression object</p>
+<p><strong>yc</strong> : float or hycohanz Expression object</p>
+<p><strong>zc</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>The x, y, and z coordinates of the center of the circle.</p>
+</div></blockquote>
+<p><strong>radius</strong> : float</p>
+<blockquote>
+<div><p>The radius of the circle.</p>
+</div></blockquote>
+<p><strong>WhichAxis</strong> : str</p>
+<blockquote>
+<div><p>The axis normal to the circle.  Can be &#8216;X&#8217;, &#8216;Y&#8217;, or &#8216;Z&#8217;.</p>
+</div></blockquote>
+<p><strong>NumSegments</strong> : int</p>
+<blockquote>
+<div><p>If 0, the circle is not segmented.  Otherwise, the circle is 
+segmented into NumSegments sides.</p>
+</div></blockquote>
+<p><strong>Name</strong> : str</p>
+<blockquote>
+<div><p>The requested name of the object.  If this is not available, HFSS 
+will assign a different name, which is returned by this function.</p>
+</div></blockquote>
+<p><strong>Flags</strong> : str</p>
+<blockquote>
+<div><p>Flags associated with this object.  See HFSS help for details.</p>
+</div></blockquote>
+<p><strong>Color</strong> : tuple of length=3</p>
+<blockquote>
+<div><p>RGB components of the circle</p>
+</div></blockquote>
+<p><strong>Transparency</strong> : float between 0 and 1</p>
+<blockquote>
+<div><p>Fractional transparency.  0 is opaque and 1 is transparent.</p>
+</div></blockquote>
+<p><strong>PartCoordinateSystem</strong> : str</p>
+<blockquote>
+<div><p>The name of the coordinate system in which the object is drawn.</p>
+</div></blockquote>
+<p><strong>MaterialName</strong> : str</p>
+<blockquote>
+<div><p>Name of the material to assign to the object.  Name must be surrounded 
+by double quotes.</p>
+</div></blockquote>
+<p><strong>SolveInside</strong> : bool</p>
+<blockquote>
+<div><p>Whether to mesh the interior of the object and solve for the fields 
+inside.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>str</strong> :</p>
+<blockquote class="last">
+<div><p>The actual name of the created object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.create_polyline">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">create_polyline</tt><big>(</big><em>oEditor</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>Name=u'Polyline1'</em>, <em>Flags=u''</em>, <em>Color=u'(132 132 193)'</em>, <em>Transparency=0</em>, <em>PartCoordinateSystem=u'Global'</em>, <em>UDMId=u''</em>, <em>MaterialValue=u'&quot;vacuum&quot;'</em>, <em>SolveInside=True</em>, <em>IsPolylineCovered=True</em>, <em>IsPolylineClosed=True</em>, <em>XSectionBendType=u'Corner'</em>, <em>XSectionNumSegments=u'0'</em>, <em>XSectionHeight=u'0mm'</em>, <em>XSectionTopWidth=u'0mm'</em>, <em>XSectionWidth=u'0mm'</em>, <em>XSectionOrient=u'Auto'</em>, <em>XSectionType=u'None'</em>, <em>SegmentType=u'Line'</em>, <em>NoOfPoints=2</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.create_polyline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a polyline.</p>
+<p>Warning:  HFSS apparently throws an exception whenever IsPolylineClosed=False
+Warning:  HFSS 13 crashes when you click on the last segment in the model tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which to perform the operation</p>
+</div></blockquote>
+<p><strong>x</strong> : array_like</p>
+<blockquote>
+<div><p>The x locations of the polyline vertices. Can have numeric or string elements.</p>
+</div></blockquote>
+<p><strong>y</strong> : array_like</p>
+<blockquote>
+<div><p>The y locations of the polyline vertices. Can have numeric or string elements.</p>
+</div></blockquote>
+<p><strong>z</strong> : array_like</p>
+<blockquote>
+<div><p>The z locations of the polyline vertices. Can have numeric or string elements.</p>
+</div></blockquote>
+<p><strong>Name</strong> : str</p>
+<blockquote>
+<div><p>Requested name of the polyline</p>
+</div></blockquote>
+<p><strong>Flags</strong> : str</p>
+<blockquote>
+<div><p>Certain flags that can be set.  See HFSS Scripting Manual for details.</p>
+</div></blockquote>
+<p><strong>Transparency</strong> : float</p>
+<blockquote>
+<div><p>Fractional transparency of the object.  0 is opaque, 1 is transparent.</p>
+</div></blockquote>
+<p><strong>PartCoordinateSystem</strong> : str</p>
+<blockquote>
+<div><p>Coordinate system to use in constructing the object.</p>
+</div></blockquote>
+<p><strong>UDMId</strong> : str</p>
+<blockquote>
+<div><p>TODO:  Add documentation here.</p>
+</div></blockquote>
+<p><strong>MaterialValue</strong> : str</p>
+<blockquote>
+<div><p>Name of the material to assign to the object.</p>
+</div></blockquote>
+<p><strong>SolveInside</strong> : bool</p>
+<blockquote>
+<div><p>Whether fields are computed inside the object.</p>
+</div></blockquote>
+<p><strong>IsPolylineCovered</strong> : bool</p>
+<blockquote>
+<div><p>Whether the polyline is covered.</p>
+</div></blockquote>
+<p><strong>IsPolylineClosed</strong> : bool</p>
+<blockquote>
+<div><p>Whether the polyline should be considered closed.</p>
+</div></blockquote>
+<p><strong>TODO:  finish documentation of this function.</strong> :</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>polyname</strong> : str</p>
+<blockquote>
+<div><p>Actual name of the polyline</p>
+</div></blockquote>
+<p class="last"><strong>x, y, and z are lists with numeric or string elements.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.create_rectangle">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">create_rectangle</tt><big>(</big><em>oEditor</em>, <em>xs</em>, <em>ys</em>, <em>zs</em>, <em>width</em>, <em>height</em>, <em>WhichAxis=u'Z'</em>, <em>Name=u'Rectangle1'</em>, <em>Flags=u''</em>, <em>Color=(132</em>, <em>132</em>, <em>193)</em>, <em>Transparency=0</em>, <em>PartCoordinateSystem=u'Global'</em>, <em>UDMId=u''</em>, <em>MaterialValue=u'&quot;vacuum&quot;'</em>, <em>SolveInside=True</em>, <em>IsCovered=True</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.create_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a rectangle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>xs</strong> : float or hycohanz Expression object</p>
+<p><strong>ys</strong> : float or hycohanz Expression object</p>
+<p><strong>zs</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>The x, y, and z coordinates of the center of the circle.</p>
+</div></blockquote>
+<p><strong>width</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>x-dimension of the rectangle</p>
+</div></blockquote>
+<p><strong>height</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>y-dimension of the rectangle</p>
+</div></blockquote>
+<p><strong>WhichAxis</strong> : str</p>
+<blockquote>
+<div><p>The axis normal to the circle.  Can be &#8216;X&#8217;, &#8216;Y&#8217;, or &#8216;Z&#8217;.</p>
+</div></blockquote>
+<p><strong>Name</strong> : str</p>
+<blockquote>
+<div><p>The requested name of the object.  If this is not available, HFSS 
+will assign a different name, which is returned by this function.</p>
+</div></blockquote>
+<p><strong>Flags</strong> : str</p>
+<blockquote>
+<div><p>Flags associated with this object.  See HFSS help for details.</p>
+</div></blockquote>
+<p><strong>Color</strong> : tuple of length=3</p>
+<blockquote>
+<div><p>RGB components of the circle</p>
+</div></blockquote>
+<p><strong>Transparency</strong> : float between 0 and 1</p>
+<blockquote>
+<div><p>Fractional transparency.  0 is opaque and 1 is transparent.</p>
+</div></blockquote>
+<p><strong>PartCoordinateSystem</strong> : str</p>
+<blockquote>
+<div><p>The name of the coordinate system in which the object is drawn.</p>
+</div></blockquote>
+<p><strong>MaterialName</strong> : str</p>
+<blockquote>
+<div><p>Name of the material to assign to the object.  Name must be surrounded 
+by double quotes.</p>
+</div></blockquote>
+<p><strong>SolveInside</strong> : bool</p>
+<blockquote>
+<div><p>Whether to mesh the interior of the object and solve for the fields 
+inside.</p>
+</div></blockquote>
+<p><strong>IsCovered</strong> : bool</p>
+<blockquote>
+<div><p>Whether the rectangle is has a surface or has only edges.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>str</strong> :</p>
+<blockquote class="last">
+<div><p>The actual name of the created object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.create_sphere">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">create_sphere</tt><big>(</big><em>oEditor</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>radius</em>, <em>Name=u'Sphere1'</em>, <em>Flags=u''</em>, <em>Color=(132</em>, <em>132</em>, <em>193)</em>, <em>Transparency=0</em>, <em>PartCoordinateSystem=u'Global'</em>, <em>UDMId=u''</em>, <em>MaterialValue=u'&quot;vacuum&quot;'</em>, <em>SolveInside=True</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.create_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a sphere primitive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>x</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>x position in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>y</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>y position in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>z</strong> : float or hycohanz Expression object</p>
+<blockquote>
+<div><p>z position in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>radius</strong> : float</p>
+<blockquote>
+<div><p>The sphere radius.</p>
+</div></blockquote>
+<p><strong>Name</strong> : str</p>
+<blockquote>
+<div><p>The requested name of the object.  HFSS doesn&#8217;t necessarily honor this.</p>
+</div></blockquote>
+<p><strong>Flags</strong> : str</p>
+<blockquote>
+<div><p>Flags to attach to the object.  See the HFSS help for explanation 
+of this parameter.</p>
+</div></blockquote>
+<p><strong>Color</strong> : tuple of ints</p>
+<blockquote>
+<div><p>The RGB indices corresponding to the desired color of the object.</p>
+</div></blockquote>
+<p><strong>Transparency</strong> : float between 0 and 1</p>
+<blockquote>
+<div><p>Fractional transparency.  0 is opaque and 1 is transparent.</p>
+</div></blockquote>
+<p><strong>PartCoordinateSystem</strong> : str</p>
+<blockquote>
+<div><p>The name of the coordinate system in which the object is drawn.</p>
+</div></blockquote>
+<p><strong>UDMId</strong> : str</p>
+<blockquote>
+<div><p>Unknown use.  See HFSS documentation for explanation.</p>
+</div></blockquote>
+<p><strong>MaterialValue</strong> : str</p>
+<blockquote>
+<div><p>Name of the material to assign to the object</p>
+</div></blockquote>
+<p><strong>SolveInside</strong> : bool</p>
+<blockquote>
+<div><p>Whether to mesh the interior of the object and solve for the fields 
+inside.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>part</strong> : str</p>
+<blockquote class="last">
+<div><p>The actual name assigned by HFSS to the part.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.get_object_id_by_name">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">get_object_id_by_name</tt><big>(</big><em>oEditor</em>, <em>objname</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.get_object_id_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the object ID of the specified part.</p>
+<p>Note:  This is NOT the inverse of get_object_name()!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.get_object_name">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">get_object_name</tt><big>(</big><em>oEditor</em>, <em>index</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.get_object_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the object name corresponding to the zero-based creation-order index.</p>
+<p>Note:  This is NOT the inverse of get_object_id_by_name()!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.get_object_name_by_faceid">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">get_object_name_by_faceid</tt><big>(</big><em>oEditor</em>, <em>faceid</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.get_object_name_by_faceid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the object name corresponding to the given face ID.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.get_selections">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">get_selections</tt><big>(</big><em>oEditor</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.get_selections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of the currently-selected objects in the design.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>selectionlist</strong> : list</p>
+<blockquote class="last">
+<div><p>List of the selectable objects in the design?</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.imprint">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">imprint</tt><big>(</big><em>oEditor</em>, <em>blanklist</em>, <em>toollist</em>, <em>KeepOriginals=False</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.imprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imprint an object onto another object.</p>
+<p>Note:  This function is undocumented in the HFSS Scripting Guide.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.mirror">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">mirror</tt><big>(</big><em>oEditor</em>, <em>partlist</em>, <em>base</em>, <em>normal</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror specified parts about a given base point with respect to a given 
+plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be mirrored.</p>
+</div></blockquote>
+<p><strong>base</strong> : list</p>
+<blockquote>
+<div><p>Mirror base point in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>normal</strong> : list</p>
+<blockquote>
+<div><p>Mirror plane normal in Cartesian coordinates.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.move">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">move</tt><big>(</big><em>oEditor</em>, <em>partlist</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>NewPartsModelFlag=u'Model'</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move specified parts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be mirrored.</p>
+</div></blockquote>
+<p><strong>x</strong> : float</p>
+<blockquote>
+<div><p>x displacement in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>y</strong> : float</p>
+<blockquote>
+<div><p>y displacement in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>z</strong> : float</p>
+<blockquote>
+<div><p>z displacement in Cartesian coordinates.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.paste">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">paste</tt><big>(</big><em>oEditor</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paste a design in the active project from the clipboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS Editor in which to perform the operation</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>pastelist</strong> : list</p>
+<blockquote class="last">
+<div><p>List of parts that are pasted</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.rotate">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">rotate</tt><big>(</big><em>oEditor</em>, <em>partlist</em>, <em>axis</em>, <em>angle</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate specified parts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be rotated.</p>
+</div></blockquote>
+<p><strong>axis</strong> : str</p>
+<blockquote>
+<div><p>Rotation axis.</p>
+</div></blockquote>
+<p><strong>angle</strong> : float</p>
+<blockquote>
+<div><p>Rotation angle in radians</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.scale">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">scale</tt><big>(</big><em>oEditor</em>, <em>partlist</em>, <em>x</em>, <em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale specified parts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be scaled.</p>
+</div></blockquote>
+<p><strong>x</strong> : float</p>
+<blockquote>
+<div><p>x scaling factor in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>y</strong> : float</p>
+<blockquote>
+<div><p>y scaling factor in Cartesian coordinates.</p>
+</div></blockquote>
+<p><strong>z</strong> : float</p>
+<blockquote>
+<div><p>z scaling factor in Cartesian coordinates.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.subtract">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">subtract</tt><big>(</big><em>oEditor</em>, <em>blanklist</em>, <em>toollist</em>, <em>KeepOriginals=False</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.subtract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtract the specified objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>partlist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be subtracted.</p>
+</div></blockquote>
+<p><strong>toollist</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to subtract from partlist.</p>
+</div></blockquote>
+<p><strong>KeepOriginals</strong> : bool</p>
+<blockquote>
+<div><p>Whether to clone the tool parts.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>objname</strong> : str</p>
+<blockquote class="last">
+<div><p>Name of object created by the subtract operation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.modeler3d.sweep_along_vector">
+<tt class="descclassname">hycohanz.modeler3d.</tt><tt class="descname">sweep_along_vector</tt><big>(</big><em>oEditor</em>, <em>obj_name_list</em>, <em>x</em>, <em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#hycohanz.modeler3d.sweep_along_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sweeps the specified 1D or 2D parts along a vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS editor in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>obj_name_list</strong> : list</p>
+<blockquote>
+<div><p>List of part name strings to be scaled.</p>
+</div></blockquote>
+<p><strong>x</strong> : float</p>
+<blockquote>
+<div><p>x component of the sweep vector.</p>
+</div></blockquote>
+<p><strong>y</strong> : float</p>
+<blockquote>
+<div><p>y component of the sweep vector.</p>
+</div></blockquote>
+<p><strong>z</strong> : float</p>
+<blockquote>
+<div><p>z component of the sweep vector.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expression.html" title="The Expression Class"
+             >previous</a> |</li>
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Matthew Radway.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

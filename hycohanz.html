@@ -8,9 +8,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hycohanz Package &mdash; hycohanz 0.1 documentation</title>
+    <title>General-Use Functions &mdash; hycohanz 0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,9 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="hycohanz 0.1 documentation" href="index.html" />
-    <link rel="up" title="hycohanz" href="modules.html" />
-    <link rel="next" title="setup Module" href="setup.html" />
-    <link rel="prev" title="hycohanz" href="modules.html" /> 
+    <link rel="next" title="The Expression Class" href="expression.html" />
+    <link rel="prev" title="Detailed Installation" href="install.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,52 +37,33 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="setup.html" title="setup Module"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expression.html" title="The Expression Class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="hycohanz"
+          <a href="install.html" title="Detailed Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li>
-          <li><a href="modules.html" accesskey="U">hycohanz</a> &raquo;</li> 
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
-  <div class="section" id="hycohanz-package">
-<h1>hycohanz Package<a class="headerlink" href="#hycohanz-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">hycohanz</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="hycohanz-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">hycohanz</span></tt> Module<a class="headerlink" href="#hycohanz-module" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
+    </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">hycohanz Package</a><ul>
-<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">hycohanz</span></tt> Package</a></li>
-<li><a class="reference internal" href="#hycohanz-module"><tt class="docutils literal"><span class="pre">hycohanz</span></tt> Module</a></li>
+<li><a class="reference internal" href="#">General-Use Functions</a><ul>
+<li><a class="reference internal" href="#example-usage">Example Usage</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="modules.html"
-                        title="previous chapter">hycohanz</a></p>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Detailed Installation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="setup.html"
-                        title="next chapter">setup Module</a></p>
+  <p class="topless"><a href="expression.html"
+                        title="next chapter">The Expression Class</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/hycohanz.txt"
@@ -104,6 +84,653 @@
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-hycohanz.hycohanz">
+<span id="general-use-functions"></span><h1>General-Use Functions<a class="headerlink" href="#module-hycohanz.hycohanz" title="Permalink to this headline">¶</a></h1>
+<p>Expose the HFSS Windows COM API.</p>
+<div class="section" id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hycohanz</span> <span class="kn">as</span> <span class="nn">hfss</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">oAnsoftApp</span><span class="p">,</span> <span class="n">oDesktop</span><span class="p">]</span> <span class="o">=</span> <span class="n">hfss</span><span class="o">.</span><span class="n">setup_interface</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hfss</span><span class="o">.</span><span class="n">quit_application</span><span class="p">(</span><span class="n">oDesktop</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="hycohanz.hycohanz.add_property">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">add_property</tt><big>(</big><em>oDesign</em>, <em>name</em>, <em>value</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.add_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a design property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design from which to retrieve the module.</p>
+</div></blockquote>
+<p><strong>name</strong> : str</p>
+<blockquote>
+<div><p>The name of the property to add.</p>
+</div></blockquote>
+<p><strong>value</strong> : Hyphasis Expression object</p>
+<blockquote>
+<div><p>The value of the property.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.assign_perfect_e">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">assign_perfect_e</tt><big>(</big><em>oDesign</em>, <em>boundaryname</em>, <em>facelist</em>, <em>InfGroundPlane=False</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.assign_perfect_e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a perfect E boundary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design to which this function is applied.</p>
+</div></blockquote>
+<p><strong>boundaryname</strong> : str</p>
+<blockquote>
+<div><p>The name to give this boundary in the Boundaries tree.</p>
+</div></blockquote>
+<p><strong>facelist</strong> : list of ints</p>
+<blockquote>
+<div><p>The faces to assign to this boundary condition.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.assign_perfect_h">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">assign_perfect_h</tt><big>(</big><em>oDesign</em>, <em>boundaryname</em>, <em>facelist</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.assign_perfect_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a perfect H boundary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design to which this function is applied.</p>
+</div></blockquote>
+<p><strong>boundaryname</strong> : str</p>
+<blockquote>
+<div><p>The name to give this boundary in the Boundaries tree.</p>
+</div></blockquote>
+<p><strong>facelist</strong> : list of ints</p>
+<blockquote>
+<div><p>The faces to assign to this boundary condition.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.assign_radiation">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">assign_radiation</tt><big>(</big><em>oDesign</em>, <em>faceidlist</em>, <em>IsIncidentField=False</em>, <em>IsEnforcedField=False</em>, <em>IsFssReference=False</em>, <em>IsForPML=False</em>, <em>UseAdaptiveIE=False</em>, <em>IncludeInPostproc=True</em>, <em>Name=u'Rad1'</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.assign_radiation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a radiation boundary on the given faces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design to which this function is applied.</p>
+</div></blockquote>
+<p><strong>faceidlist</strong> : list of ints</p>
+<blockquote>
+<div><p>The faces to assign to this boundary condition.</p>
+</div></blockquote>
+<p><strong>IsIncidentField</strong> : bool</p>
+<blockquote>
+<div><p>If True, same as checking the &#8220;Incident Field&#8221; radio button in the 
+Radiation Boundary setup dialog.  Mutually-exclusive with 
+IsEnforcedField</p>
+</div></blockquote>
+<p><strong>IsEnforcedField</strong> : bool</p>
+<blockquote>
+<div><p>If True, same as checking the &#8220;Enforced Field&#8221; radio button in the 
+Radiation Boundary setup dialog.  Mutually-exclusive with 
+IsIncidentField</p>
+</div></blockquote>
+<p><strong>IsFssReference</strong> : bool</p>
+<blockquote>
+<div><p>If IsEnforcedField is False, is equivalent to checking the 
+&#8220;Reference for FSS&#8221; check box i the Radiation Boundary setup dialog.</p>
+</div></blockquote>
+<p><strong>IsForPML</strong> : bool</p>
+<blockquote>
+<div><p>Not explored at this time.  Likely use case is when defining a 
+radiation boundary in conjuction with PMLs where the boundary lies on 
+the surface between the PML and the PML base object.</p>
+</div></blockquote>
+<p><strong>UseAdaptiveIE</strong> : bool</p>
+<blockquote>
+<div><p>Not explored at this time.  It is likely that setting this to True is 
+equivalent to selecting the &#8220;Model exterior as HFSS-IE domain&#8221; check 
+box in the Radiation Boundary setup dialog.</p>
+</div></blockquote>
+<p><strong>IncludeInPostproc</strong> : bool</p>
+<blockquote>
+<div><p>Not explored at this time.  Likely use case is to remove certain 
+boundaries from consideration during certain postprocessing 
+operations, such as when computing the radiation pattern.</p>
+</div></blockquote>
+<p><strong>Name</strong> : str</p>
+<blockquote>
+<div><p>The name to assign the boundary.</p>
+</div></blockquote>
+<p><strong>Returns</strong> :</p>
+<p><strong>&#8212;&#8212;-</strong> :</p>
+<p class="last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.assign_waveport_multimode">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">assign_waveport_multimode</tt><big>(</big><em>oDesign, portname, faceidlist, Nmodes=1, RenormalizeAllTerminals=True, UseLineAlignment=False, DoDeembed=False, ShowReporterFilter=False, ReporterFilter=[True], UseAnalyticAlignment=False</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.assign_waveport_multimode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a waveport excitation using multiple modes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design to which this function is applied.</p>
+</div></blockquote>
+<p><strong>portname</strong> : str</p>
+<blockquote>
+<div><p>Name of the port to create.</p>
+</div></blockquote>
+<p><strong>faceidlist</strong> : list</p>
+<blockquote>
+<div><p>List of face id integers.</p>
+</div></blockquote>
+<p><strong>Nmodes</strong> : int</p>
+<blockquote>
+<div><p>Number of modes with which to excite the port.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.close_all_projects">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">close_all_projects</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.close_all_projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close all open projects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.close_all_projects_except_current">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">close_all_projects_except_current</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.close_all_projects_except_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close all open projects except the active project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.close_current_project">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">close_current_project</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.close_current_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the active project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.close_project_byhandle">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">close_project_byhandle</tt><big>(</big><em>oDesktop</em>, <em>oProject</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.close_project_byhandle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the specified project using the given HFSS project object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+<p><strong>oProject</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS project object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.close_project_byname">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">close_project_byname</tt><big>(</big><em>oDesktop</em>, <em>projectname</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.close_project_byname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the specified project using the given HFSS project object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+<p><strong>projectname</strong> : string</p>
+<blockquote>
+<div><p>The name of the HFSS project to close.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.get_active_project">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">get_active_project</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.get_active_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a handle for the active project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oProject</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>The HFSS project object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.get_module">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">get_module</tt><big>(</big><em>oDesign</em>, <em>ModuleName</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.get_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a module handle for the given module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design object upon which to operate.</p>
+</div></blockquote>
+<p><strong>ModuleName</strong> : str</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Name of the module to return.  One of </dt>
+<dd><ul class="first last simple">
+<li>&#8220;BoundarySetup&#8221;</li>
+<li>&#8220;MeshSetup&#8221;</li>
+<li>&#8220;AnalysisSetup&#8221;</li>
+<li>&#8220;Optimetrics&#8221;</li>
+<li>&#8220;Solutions&#8221;</li>
+<li>&#8220;FieldsReporter&#8221;</li>
+<li>&#8220;RadField&#8221;</li>
+<li>&#8220;UserDefinedSolutionModule&#8221;</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oModule</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>Handle to the given module</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.get_project_name">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">get_project_name</tt><big>(</big><em>oProject</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.get_project_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the specified project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oProject</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS project object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>str</strong> :</p>
+<blockquote class="last">
+<div><p>The name of the project.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.get_projects">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">get_projects</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.get_projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of open projects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oProject</strong> : list of pywin32 COMObjects</p>
+<blockquote class="last">
+<div><p>The HFSS desktop object upon which to operate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.insert_analysis_setup">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">insert_analysis_setup</tt><big>(</big><em>oDesign</em>, <em>Frequency</em>, <em>PortsOnly=True</em>, <em>MaxDeltaS=0.02</em>, <em>Name=u'Setup1'</em>, <em>UseMatrixConv=False</em>, <em>MaximumPasses=20</em>, <em>MinimumPasses=2</em>, <em>MinimumConvergedPasses=2</em>, <em>PercentRefinement=30</em>, <em>IsEnabled=True</em>, <em>BasisOrder=2</em>, <em>UseIterativeSolver=False</em>, <em>DoLambdaRefine=True</em>, <em>DoMaterialLambda=True</em>, <em>SetLambdaTarget=True</em>, <em>Target=0.6667</em>, <em>UseMaxTetIncrease=False</em>, <em>PortAccuracy=2</em>, <em>UseABCOnPort=False</em>, <em>SetPortMinMaxTri=False</em>, <em>EnableSolverDomains=False</em>, <em>ThermalFeedback=False</em>, <em>NoAdditionalRefinementOnImport=False</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.insert_analysis_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an HFSS analysis setup.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.insert_design">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">insert_design</tt><big>(</big><em>oProject</em>, <em>designname</em>, <em>solutiontype</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.insert_design" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an HFSS design.  The scripting interface doesn&#8217;t appear to support 
+creation of HFSS-IE designs at this time, or is undocumented.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oProject</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS project in which the operation will be performed.</p>
+</div></blockquote>
+<p><strong>designname</strong> : str</p>
+<blockquote>
+<div><p>Name of the design to insert.</p>
+</div></blockquote>
+<p><strong>solutiontype</strong> : str</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Name of the solution type.  One of (&#8220;DrivenModal&#8221;, </dt>
+<dd><p class="first last">&#8220;DrivenTerminal&#8221;, 
+&#8220;Eigenmode&#8221;)</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>The created HFSS design.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.insert_frequency_sweep">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">insert_frequency_sweep</tt><big>(</big><em>oDesign</em>, <em>setupname</em>, <em>sweepname</em>, <em>startvalue</em>, <em>stopvalue</em>, <em>stepsize</em>, <em>IsEnabled=True</em>, <em>SetupType=u'LinearStep'</em>, <em>Type=u'Discrete'</em>, <em>SaveFields=True</em>, <em>ExtrapToDC=False</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.insert_frequency_sweep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an HFSS frequency sweep.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oAnalysisSetup</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS Analysis Setup Module in which to insert the sweep.</p>
+</div></blockquote>
+<p><strong>setupname</strong> : string</p>
+<blockquote>
+<div><p>The name of the setup to add</p>
+</div></blockquote>
+<p><strong>sweepname</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the sweep</p>
+</div></blockquote>
+<p><strong>startvalue</strong> : float</p>
+<blockquote>
+<div><p>Lowest frequency in Hz.</p>
+</div></blockquote>
+<p><strong>stopvalue</strong> : float</p>
+<blockquote>
+<div><p>Highest frequency in Hz.</p>
+</div></blockquote>
+<p><strong>stepsize</strong> : flot</p>
+<blockquote>
+<div><p>The frequency increment in Hz.</p>
+</div></blockquote>
+<p><strong>IsEnabled</strong> : bool</p>
+<blockquote>
+<div><p>Whether the sweep is enabled.</p>
+</div></blockquote>
+<p><strong>SetupType</strong> : string</p>
+<blockquote>
+<div><p>The type of sweep setup to add.  One of &#8220;LinearStep&#8221;, &#8220;LinearCount&#8221;, 
+or &#8220;SinglePoints&#8221;.  Currently only &#8220;LinearStep&#8221; is supported.</p>
+</div></blockquote>
+<p><strong>Type</strong> : string</p>
+<blockquote>
+<div><p>The type of sweep to perform.  One of &#8220;Discrete&#8221;, &#8220;Fast&#8221;, or 
+&#8220;Interpolating&#8221;.  Currently only &#8220;Discrete&#8221; is supported.</p>
+</div></blockquote>
+<p><strong>Savefields</strong> : bool</p>
+<blockquote>
+<div><p>Whether to save the fields.</p>
+</div></blockquote>
+<p><strong>ExtrapToDC</strong> : bool</p>
+<blockquote>
+<div><p>Whether extrapolation to DC is enabled.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.new_project">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">new_project</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.new_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new project.  The new project becomes the active project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>HFSS Desktop object in which to create the new project.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oProject</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>The created HFSS project.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.quit_application">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">quit_application</tt><big>(</big><em>oDesktop</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.quit_application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit HFSS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>HFSS Desktop object.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>None</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Hyphasis</span> <span class="kn">as</span> <span class="nn">hfss</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">oAnsoftApp</span><span class="p">,</span> <span class="n">oDesktop</span><span class="p">]</span> <span class="o">=</span> <span class="n">hfss</span><span class="o">.</span><span class="n">setup_interface</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hfss</span><span class="o">.</span><span class="n">quit_application</span><span class="p">(</span><span class="n">oDesktop</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.set_active_editor">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">set_active_editor</tt><big>(</big><em>oDesign</em>, <em>editorname=u'3D Modeler'</em><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.set_active_editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the active editor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oDesign</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>The HFSS design upon which to operate.</p>
+</div></blockquote>
+<p><strong>editorname</strong> : str</p>
+<blockquote>
+<div><p>Name of the editor to set as active.  As of this writing &#8220;3D Modeler&#8221; 
+is the only known valid value.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oEditor</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>The HFSS Editor object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hycohanz.hycohanz.setup_interface">
+<tt class="descclassname">hycohanz.hycohanz.</tt><tt class="descname">setup_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#hycohanz.hycohanz.setup_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the COM interface to the running HFSS process.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oAnsoftApp</strong> : pywin32 COMObject</p>
+<blockquote>
+<div><p>Handle to the HFSS application interface</p>
+</div></blockquote>
+<p><strong>oDesktop</strong> : pywin32 COMObject</p>
+<blockquote class="last">
+<div><p>Handle to the HFSS desktop interface</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Hyphasis</span> <span class="kn">as</span> <span class="nn">hfss</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">oAnsoftApp</span><span class="p">,</span> <span class="n">oDesktop</span><span class="p">]</span> <span class="o">=</span> <span class="n">hfss</span><span class="o">.</span><span class="n">setup_interface</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -113,13 +740,15 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="setup.html" title="setup Module"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expression.html" title="The Expression Class"
              >next</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="hycohanz"
+          <a href="install.html" title="Detailed Installation"
              >previous</a> |</li>
-        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li>
-          <li><a href="modules.html" >hycohanz</a> &raquo;</li> 
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
