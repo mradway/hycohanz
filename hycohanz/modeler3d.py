@@ -491,6 +491,14 @@ def move(oEditor, partlist, x, y, z, NewPartsModelFlag="Model"):
     
     oEditor.Move(selectionsarray, moveparametersarray)
 
+def get_object_name(oEditor, index):
+    """
+    Return the object name corresponding to the zero-based creation-order index.
+    
+    Note:  This is NOT the inverse of get_object_id_by_name()!
+    """
+    return oEditor.GetObjectName(index)
+
 def copy(oEditor, partlist):
     """
     Copy specified parts to the clipboard.
@@ -512,6 +520,14 @@ def copy(oEditor, partlist):
                        
     oEditor.Copy(selectionsarray)
     
+def get_object_id_by_name(oEditor, objname):
+    """
+    Return the object ID of the specified part.
+    
+    Note:  This is NOT the inverse of get_object_name()!
+    """
+    return oEditor.GetObjectIDByName(objname)
+
 def paste(oEditor):
     """
     Paste a design in the active project from the clipboard.
