@@ -1,0 +1,72 @@
+.. _detailed-install:
+
+Detailed Installation
+=====================
+
+You are assumed to have:
+
+* Administrative priviledges on a desktop computer
+* Installed 64-bit Windows operating system (7, Vista, or XP)
+* Functioning installation of HFSS v.15, stock-configured and licensed
+* Working knowledge of Python
+* No prior Python installation (it's okay if you do though)
+* Ability to download and install software from the internet
+* Ability to unzip files to your computer
+* Working knowledge of the Windows command shell
+* Ability to install software on the computer
+
+1. If you have not already done so, download and/or install the 64-bit versions of the following:
+
+   - Python 2.7 (for instance, from http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi)
+   - pywin32 (for instance, from http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win-amd64-py2.7.exe/download)
+
+2. Verify that Python starts correctly by launching the Windows command shell (cmd.exe) and typing the following at the command prompt. ::
+
+    > C:\Python27\python
+
+   The Python interpreter should start and present the following prompt after a few seconds:
+
+    >>>
+
+3. Verify that pywin32 installed correctly by typing the following at the Python prompt.
+
+    >>> import win32com
+
+   If an ImportError does not occur, then pywin32 is likely to have installed correctly.
+
+4. Exit Python by pressing Ctrl+D.
+
+5. Visit https://github.com/mradway/hycohanz and download the latest release of hycohanz as a zip file.  As of this writing, this is done by clicking the button labeled "ZIP".
+
+6. Unzip the file to a convenient location on your computer
+
+7. Open another Windows command shell.
+
+8. Change to the directory where you unzipped hycohanz.
+
+9. At the Windows command shell prompt, run::
+
+    > C:\Python27\python setup.py install
+
+10. Verify that hycohanz installed correctly by opening another python shell ::
+
+    > C:\Python27\python
+
+   and entering at the interpreter prompt
+
+    >>> import hycohanz
+
+   If an ImportError does not occur, then it is possible that hycohanz installed correctly.
+
+11. Ensure that all instances of HFSS are closed.
+
+12. From where you downloaded hycohanz, change to the examples directory ::
+
+    > cd examples
+
+   and run the example script ::
+
+    > C:\Python27\python setup_interface_and_quit_application.py
+
+   You should see HFSS open in the background.  Pressing "Enter" at the prompt will cause HFSS to exit.  If this happens without errors then hycohanz is installed correctly.
+

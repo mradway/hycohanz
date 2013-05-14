@@ -1,0 +1,19 @@
+hycohanz Package
+================
+
+:mod:`hycohanz` Package
+-----------------------
+
+.. automodule:: hycohanz
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`hycohanz` Module
+----------------------
+
+.. automodule:: hycohanz.hycohanz
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

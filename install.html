@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Detailed Installation &mdash; hycohanz 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="hycohanz 0.1 documentation" href="index.html" />
+    <link rel="prev" title="hycohanz" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="hycohanz"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="detailed-installation">
+<span id="detailed-install"></span><h1>Detailed Installation<a class="headerlink" href="#detailed-installation" title="Permalink to this headline">¶</a></h1>
+<p>You are assumed to have:</p>
+<ul class="simple">
+<li>Administrative priviledges on a desktop computer</li>
+<li>Installed 64-bit Windows operating system (7, Vista, or XP)</li>
+<li>Functioning installation of HFSS v.15, stock-configured and licensed</li>
+<li>Working knowledge of Python</li>
+<li>No prior Python installation (it&#8217;s okay if you do though)</li>
+<li>Ability to download and install software from the internet</li>
+<li>Ability to unzip files to your computer</li>
+<li>Working knowledge of the Windows command shell</li>
+<li>Ability to install software on the computer</li>
+</ul>
+<ol class="arabic">
+<li><p class="first">If you have not already done so, download and/or install the 64-bit versions of the following:</p>
+<ul class="simple">
+<li>Python 2.7 (for instance, from <a class="reference external" href="http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi">http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi</a>)</li>
+<li>pywin32 (for instance, from <a class="reference external" href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win-amd64-py2.7.exe/download">http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win-amd64-py2.7.exe/download</a>)</li>
+</ul>
+</li>
+<li><p class="first">Verify that Python starts correctly by launching the Windows command shell (cmd.exe) and typing the following at the command prompt.</p>
+<div class="highlight-python"><pre>&gt; C:\Python27\python</pre>
+</div>
+<p>The Python interpreter should start and present the following prompt after a few seconds:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Verify that pywin32 installed correctly by typing the following at the Python prompt.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">win32com</span>
+</pre></div>
+</div>
+<p>If an ImportError does not occur, then pywin32 is likely to have installed correctly.</p>
+</li>
+<li><p class="first">Exit Python by pressing Ctrl+D.</p>
+</li>
+<li><p class="first">Visit <a class="reference external" href="https://github.com/mradway/hycohanz">https://github.com/mradway/hycohanz</a> and download the latest release of hycohanz as a zip file.  As of this writing, this is done by clicking the button labeled &#8220;ZIP&#8221;.</p>
+</li>
+<li><p class="first">Unzip the file to a convenient location on your computer</p>
+</li>
+<li><p class="first">Open another Windows command shell.</p>
+</li>
+<li><p class="first">Change to the directory where you unzipped hycohanz.</p>
+</li>
+<li><p class="first">At the Windows command shell prompt, run:</p>
+<div class="highlight-python"><pre>&gt; C:\Python27\python setup.py install</pre>
+</div>
+</li>
+<li><p class="first">Verify that hycohanz installed correctly by opening another python shell</p>
+<div class="highlight-python"><pre>&gt; C:\Python27\python</pre>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>and entering at the interpreter prompt</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hycohanz</span>
+</pre></div>
+</div>
+<p>If an ImportError does not occur, then it is possible that hycohanz installed correctly.</p>
+</div></blockquote>
+<ol class="arabic" start="11">
+<li><p class="first">Ensure that all instances of HFSS are closed.</p>
+</li>
+<li><p class="first">From where you downloaded hycohanz, change to the examples directory</p>
+<div class="highlight-python"><pre>&gt; cd examples</pre>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>and run the example script</p>
+<div class="highlight-python"><pre>&gt; C:\Python27\python setup_interface_and_quit_application.py</pre>
+</div>
+<p>You should see HFSS open in the background.  Pressing &#8220;Enter&#8221; at the prompt will cause HFSS to exit.  If this happens without errors then hycohanz is installed correctly.</p>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">hycohanz</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="hycohanz"
+             >previous</a> |</li>
+        <li><a href="index.html">hycohanz 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Matthew Radway.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
