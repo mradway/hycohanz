@@ -15,3 +15,8 @@ oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
 raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
+
+del oDesign
+del oProject
+del oDesktop
+del oAnsoftApp
