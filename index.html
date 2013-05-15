@@ -51,6 +51,12 @@
 <li><a class="reference internal" href="#">hycohanz</a><ul>
 <li><a class="reference internal" href="#minimal-example">Minimal Example</a></li>
 <li><a class="reference internal" href="#quick-install">Quick Install</a></li>
+<li><a class="reference internal" href="#problems-bugs-questions-and-feature-requests">Problems, Bugs, Questions, and Feature Requests</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#warning">Warning</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+<li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
 <li><a class="reference internal" href="#contents">Contents</a><ul>
 </ul>
 </li>
@@ -120,6 +126,104 @@
 </li>
 </ol>
 <p>See <a class="reference internal" href="install.html#detailed-install"><em>Detailed Installation</em></a> if you don&#8217;t already have Python installed.</p>
+</div>
+<div class="section" id="problems-bugs-questions-and-feature-requests">
+<h2>Problems, Bugs, Questions, and Feature Requests<a class="headerlink" href="#problems-bugs-questions-and-feature-requests" title="Permalink to this headline">¶</a></h2>
+<p>These are currently handled via the hycohanz issue tracker <a class="reference external" href="https://github.com/mradway/hycohanz/issues">https://github.com/mradway/hycohanz/issues</a>.</p>
+<p>This issue tracker is useful if you</p>
+<ul class="simple">
+<li>run into problems with installing or running hycohanz,</li>
+<li>find a bug,</li>
+<li>have a question,</li>
+<li>would like to see a feature implemented.</li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>hycohanz provides convenience functions for the following:</p>
+<ul class="simple">
+<li>Starting, connecting to, and closing HFSS</li>
+<li>Creating design variables</li>
+<li>Manipulating HFSS expressions</li>
+<li>Creating 3D models using polylines, circles, rectangles, spheres, etc.</li>
+<li>Querying objects and groups of objects</li>
+<li>Object manipulation via unite, subtract, imprint, mirror, move, cut, paste, rotate, scale, sweep, etc.</li>
+<li>Assigning boundary conditions</li>
+<li>Manipulating projects and designs</li>
+<li>Creating analysis setups and frequency sweeps</li>
+</ul>
+</div>
+<div class="section" id="warning">
+<h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+<p>hycohanz is pre-alpha software and is in active development.
+The hycohanz function interfaces can be expected to change frequently, with little concern for backwards compatibility.
+This situation is likely to continue until the project reaches a more mature state.
+Therefore, if today you require a stable, reliable, and correct function library for HFSS, unfortunately this library is probably not for you in its current form.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://scikit-rf.org/">scikit-rf</a>:  A nice, actively-developed library for performing common tasks in RF, providing functionality analogous to that provided by the MATLAB RF Toolbox.  If you&#8217;re working with RF or microwave you should consider getting it.</p>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Why not write scripts using Visual Basic for Applications (VBA) or JavaScript (JS)?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">I&#8217;ve found that programming in Python is generally much, much easier and more
+powerful than in either of these languages.  Plus, I&#8217;ve generally found that
+Visual Basic scripts run inside HFSS tend to break without useful error
+messages, or worse, crash HFSS entirely.  hycohanz can also crash HFSS. But
+when it does, the Python interpreter gives you a nice stack trace, allowing
+you to determine what went wrong.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Why use Windows COM instead of .NET?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">As I understand it, the Visual Basic examples in the HFSS Scripting Guide
+use Windows COM, so that&#8217;s what I use.  If you&#8217;re using IronPython, then
+accessing .NET resources should be trivial.  However, I don&#8217;t use IronPython
+since I make extensive use in my daily work of numpy, scipy, matplotlib,
+h5py, etc., and IronPython has had issues integrating with these tools
+in the past.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Why not metaprogram VBA or JS?  Then I could use this library on Linux.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">That was my initial approach, because I wanted cross-platform capability.
+Compared to the Windows COM approach, it&#8217;s a lot more time-consuming, and
+it has all of the drawbacks of the first question.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Why did you use Python instead of MATLAB?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">I&#8217;m a recent convert to Python, so I now use Python in my daily workflow
+whenever it&#8217;s convenient (that means about 99.9% of the time). Python
+gives you keyword arguments, which helps keep the average length in characters
+of a hycohanz function call to a minimum, while minimizing implementation
+overhead compared to MATLAB.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Why not skip the HFSS interface entirely and directly emit a .hfss file?  Then
+I could use this library on Linux.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">I&#8217;ve also considered this approach.  As you may know, .hfss files are
+quasi-human-readable text files with a file format that could in principle be
+reasonably parsed and emitted.  However, the expected implementation effort
+would have been quite a bit higher than I wanted.  Not to mention that the format is not
+(to my knowledge) static, nor is it publicly specified or documented.  Thus, an
+implementation of this approach would be expected to be fragile, crash HFSS
+frequently, and leave non-useful error messages.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Often one finds that this library is missing a wrapper for a particular
+function.  Fortunately it&#8217;s often quite easy to add, usually taking
+only a few minutes.  Most of the time it&#8217;s a quick modification of
+an existing function.  Many functions can be implemented in five
+lines of code or less.  If you do add a feature to the code, please
+consider contributing it back to this project.</p>
 </div>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
