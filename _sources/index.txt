@@ -6,7 +6,7 @@
 hycohanz
 ========
 
-hycohanz is an Open Source (BSD-licensed) Python wrapper interface to the ANSYS HFSS Windows COM API, simplifying control of HFSS from Python.
+hycohanz is an Open Source (BSD-licensed) Python wrapper interface toolbox for the ANSYS HFSS Windows COM API.  hycohanz simplifies control of HFSS from Python for RF, microwave, and antenna engineers.
 
 Minimal Example
 ---------------
@@ -65,12 +65,18 @@ hycohanz provides convenience functions for the following:
 - Manipulating projects and designs
 - Creating analysis setups and frequency sweeps
 
+Examples
+--------
+Dozens of examples_ are included in the examples directory of the source distribution.
+
+.. _examples:  https://github.com/mradway/hycohanz/tree/devel/examples
+
 Warning
 -------
 hycohanz is pre-alpha software and is in active development.  
 The hycohanz function interfaces can be expected to change frequently, with little concern for backwards compatibility.
-This situation is likely to continue until the project reaches a more mature state.  
-Therefore, if today you require a stable, reliable, and correct function library for HFSS, unfortunately this library is probably not for you in its current form.
+This situation is likely to resolve once the project reaches a more mature state.  
+However, if today you require a stable, reliable, and correct function library for HFSS, unfortunately this library is probably not for you in its current form.
 
 See Also
 --------
