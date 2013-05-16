@@ -80,10 +80,15 @@ However, if today you require a stable, reliable, and correct function library f
 See Also
 --------
 scikit-rf_:  An actively-developed library for performing common tasks in RF, providing functionality analogous to that provided by the MATLAB RF Toolbox.  If you're working with RF or microwave you should consider getting it.
+
 PyVISA_:  Enables control of instrumentation via Python.
+
 matplotlib_:  Excellent Python 2-D plotting library.
+
 numpy_:  Fundamental functions for manipulating arrays and matrices and performing linear algebra in Python.  
+
 scipy_:  Builds upon numpy_ to enable MATLAB-like functionality in Python.
+
 sympy_:  Implements analogous functionality to the MATLAB Symbolic Toolbox.
 
 .. _scikit-rf:  http://scikit-rf.org/
