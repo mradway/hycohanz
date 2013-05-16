@@ -1,9 +1,75 @@
 hycohanz
 ========
 
-hycohanz is an Open Source (BSD license) Python wrapper interface 
-to the ANSYS HFSS Windows COM API, enabling you to control HFSS 
-from Python.
+hycohanz_ is an Open Source (BSD license) Python wrapper interface to the ANSYS HFSS Windows COM API, 
+enabling you to control HFSS from Python.  
+hycohanz simplifies control of HFSS from Python for RF, microwave, and antenna engineers.
+
+.. _hycohanz:  http://mradway.github.io/hycohanz/
+
+Minimal Example
+---------------
+
+.. sourcecode:: python
+
+    import hycohanz as hfss
+
+    [oAnsoftApp, oDesktop] = hfss.setup_interface()
+
+    raw_input('Press "Enter" to quit HFSS.>')
+
+    hfss.quit_application(oDesktop)
+
+    del oDesktop
+    del oAnsoftApp
+
+Quick Install
+-------------
+
+Installation is easy if you already have HFSS, Python, and the pywin32 Python package:
+
+1. Download the .zip file from Github:  https://github.com/mradway/hycohanz/archive/devel.zip
+
+2. Unzip to a convenient location.
+
+3. At the Windows command shell prompt, run::
+
+    > C:\Python27\python setup.py install
+
+See `Detailed Installation`_ if you don't already have Python installed.
+
+.. _`Detailed Installation`:  http://mradway.github.io/hycohanz/install.html
+
+Problems, Bugs, Questions, and Feature Requests
+-----------------------------------------------
+These are currently handled via the hycohanz issue tracker https://github.com/mradway/hycohanz/issues.  
+
+This issue tracker is useful if you 
+
+- run into problems with installing or running hycohanz, 
+- find a bug, 
+- have a question,
+- would like to see a feature implemented.
+
+Features
+--------
+hycohanz provides convenience functions for the following:
+
+- Starting, connecting to, and closing HFSS
+- Creating design variables
+- Manipulating HFSS expressions
+- Creating 3D models using polylines, circles, rectangles, spheres, etc.
+- Querying objects and groups of objects
+- Object manipulation via unite, subtract, imprint, mirror, move, cut, paste, rotate, scale, sweep, etc.
+- Assigning boundary conditions
+- Manipulating projects and designs
+- Creating analysis setups and frequency sweeps
+
+Examples
+--------
+Dozens of examples_ are included in the examples directory of the source distribution.
+
+.. _examples:  https://github.com/mradway/hycohanz/tree/devel/examples
 
 Warning
 -------
@@ -11,6 +77,14 @@ Warning
 hycohanz is pre-alpha software.  The interfaces can be expected to 
 break constantly.  If you are looking for a stable, reliable 
 function library for HFSS, you must look elsewhere for now.
+
+See Also
+--------
+scikit-rf_:  A nice, actively-developed library for performing common tasks in RF, 
+providing functionality analogous to that provided by the MATLAB RF Toolbox.  
+If you're working with RF or microwave you should consider getting it.
+
+.. _scikit-rf:  http://scikit-rf.org/
 
 Download
 --------
