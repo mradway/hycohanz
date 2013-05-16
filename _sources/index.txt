@@ -5,12 +5,10 @@
 
 hycohanz
 ========
-
 hycohanz is an Open Source (BSD-licensed) Python wrapper interface toolbox for the ANSYS HFSS Windows COM API.  hycohanz simplifies control of HFSS from Python for RF, microwave, and antenna engineers.
 
 Minimal Example
 ---------------
-
 .. sourcecode:: python
 
 	import hycohanz as hfss
@@ -24,13 +22,18 @@ Minimal Example
 	del oDesktop
 	del oAnsoftApp
 
+Dozens more examples_ are included in the examples directory of the source distribution.
+
+.. _examples:  https://github.com/mradway/hycohanz/tree/devel/examples
+
 
 Quick Install
 -------------
-
 Installation is easy if you already have HFSS, Python, and the pywin32 Python package:
 
-1. Download the .zip file from Github:  https://github.com/mradway/hycohanz/archive/devel.zip
+1. Download the `.zip file`_ from Github.
+
+.. _`.zip file`:  https://github.com/mradway/hycohanz/archive/devel.zip
 
 2. Unzip to a convenient location.
 
@@ -42,9 +45,11 @@ See :ref:`detailed-install` if you don't already have Python installed.
 
 Problems, Bugs, Questions, and Feature Requests
 -----------------------------------------------
-These are currently handled via the hycohanz issue tracker https://github.com/mradway/hycohanz/issues.  
+These are currently handled via the hycohanz `bug tracker`_.
 
-This issue tracker is useful if you 
+.. _`bug tracker`: https://github.com/mradway/hycohanz/issues
+
+This bug tracker is useful if you 
 
 - run into problems with installing or running hycohanz, 
 - find a bug, 
@@ -65,12 +70,6 @@ hycohanz provides convenience functions for the following:
 - Manipulating projects and designs
 - Creating analysis setups and frequency sweeps
 
-Examples
---------
-Dozens of examples_ are included in the examples directory of the source distribution.
-
-.. _examples:  https://github.com/mradway/hycohanz/tree/devel/examples
-
 Warning
 -------
 hycohanz is pre-alpha software and is in active development.  
@@ -80,13 +79,22 @@ However, if today you require a stable, reliable, and correct function library f
 
 See Also
 --------
-scikit-rf_:  A nice, actively-developed library for performing common tasks in RF, providing functionality analogous to that provided by the MATLAB RF Toolbox.  If you're working with RF or microwave you should consider getting it.
+scikit-rf_:  An actively-developed library for performing common tasks in RF, providing functionality analogous to that provided by the MATLAB RF Toolbox.  If you're working with RF or microwave you should consider getting it.
+PyVISA_:  Enables control of instrumentation via Python.
+matplotlib_:  Excellent Python 2-D plotting library.
+numpy_:  Fundamental functions for manipulating arrays and matrices and performing linear algebra in Python.  
+scipy_:  Builds upon numpy_ to enable MATLAB-like functionality in Python.
+sympy_:  Implements analogous functionality to the MATLAB Symbolic Toolbox.
 
 .. _scikit-rf:  http://scikit-rf.org/
+.. _PyVISA:  http://pyvisa.sourceforge.net/
+.. _matplotlib:  http://pyvisa.sourceforge.net/
+.. _numpy:  http://pyvisa.sourceforge.net/
+.. _scipy:  http://pyvisa.sourceforge.net/
+.. _sympy:  http://pyvisa.sourceforge.net/
 
 Frequently Asked Questions
 --------------------------
-
 :Q: Why not write scripts using Visual Basic for Applications (VBA) or JavaScript (JS)?
 :A: I've found that programming in Python is generally much, much easier and more 
     powerful than in either of these languages.  Plus, I've generally found that 
@@ -127,7 +135,6 @@ Frequently Asked Questions
 
 Contributing
 ------------
-
 Often one finds that this library is missing a wrapper for a particular 
 function.  Fortunately it's often quite easy to add, usually taking 
 only a few minutes.  Most of the time it's a quick modification of 
@@ -137,7 +144,6 @@ consider contributing it back to this project.
 
 Contents
 --------
-
 .. toctree::
    :maxdepth: 2
    
@@ -149,7 +155,6 @@ Contents
 
 Indices and tables
 ------------------
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
