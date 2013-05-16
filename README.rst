@@ -23,12 +23,19 @@ Minimal Example
     del oDesktop
     del oAnsoftApp
 
+Dozens more examples_ are included in the examples directory of the source distribution.
+
+.. _examples:  https://github.com/mradway/hycohanz/tree/devel/examples
+
+
 Quick Install
 -------------
 
 Installation is easy if you already have HFSS, Python, and the pywin32 Python package:
 
-1. Download the .zip file from Github:  https://github.com/mradway/hycohanz/archive/devel.zip
+1. Download the `.zip file`_ from Github.
+
+.. _`.zip file`:  https://github.com/mradway/hycohanz/archive/devel.zip
 
 2. Unzip to a convenient location.
 
@@ -74,17 +81,31 @@ Dozens of examples_ are included in the examples directory of the source distrib
 Warning
 -------
 
-hycohanz is pre-alpha software.  The interfaces can be expected to 
-break constantly.  If you are looking for a stable, reliable 
-function library for HFSS, you must look elsewhere for now.
+hycohanz is pre-alpha software and is in active development.  
+The hycohanz function interfaces can be expected to change frequently, with little concern for backwards compatibility.
+This situation is expected to resolve as the project approaches a more mature state.  
+However, if today you require a stable, reliable, and correct function library for HFSS, unfortunately this library is probably not for you in its current form.
 
 See Also
 --------
-scikit-rf_:  A nice, actively-developed library for performing common tasks in RF, 
-providing functionality analogous to that provided by the MATLAB RF Toolbox.  
-If you're working with RF or microwave you should consider getting it.
+scikit-rf_:  An actively-developed library for performing common tasks in RF, providing functionality analogous to that provided by the MATLAB RF Toolbox.  If you're working with RF or microwave you should consider getting it.
+
+PyVISA_:  Enables control of instrumentation via Python.
+
+matplotlib_:  Excellent Python 2-D plotting library.
+
+numpy_:  Fundamental functions for manipulating arrays and matrices and performing linear algebra in Python.  
+
+scipy_:  Builds upon numpy_ to enable MATLAB-like functionality in Python.
+
+sympy_:  Implements analogous functionality to the MATLAB Symbolic Toolbox.
 
 .. _scikit-rf:  http://scikit-rf.org/
+.. _PyVISA:  http://pyvisa.sourceforge.net/
+.. _matplotlib:  http://pyvisa.sourceforge.net/
+.. _numpy:  http://pyvisa.sourceforge.net/
+.. _scipy:  http://pyvisa.sourceforge.net/
+.. _sympy:  http://pyvisa.sourceforge.net/
 
 Download
 --------
