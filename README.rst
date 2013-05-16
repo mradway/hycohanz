@@ -102,10 +102,10 @@ sympy_:  Implements analogous functionality to the MATLAB Symbolic Toolbox.
 
 .. _scikit-rf:  http://scikit-rf.org/
 .. _PyVISA:  http://pyvisa.sourceforge.net/
-.. _matplotlib:  http://pyvisa.sourceforge.net/
-.. _numpy:  http://pyvisa.sourceforge.net/
-.. _scipy:  http://pyvisa.sourceforge.net/
-.. _sympy:  http://pyvisa.sourceforge.net/
+.. _matplotlib:  http://matplotlib.org/
+.. _numpy:  http://www.numpy.org/
+.. _scipy:  http://www.scipy.org/
+.. _sympy:  http://sympy.org/en/index.html
 
 Download
 --------
