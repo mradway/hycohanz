@@ -32,8 +32,8 @@ def setup_interface():
     oDesktop : pywin32 COMObject
         Handle to the HFSS desktop interface
     
-    Example Usage
-    -------------
+    Examples
+    --------
     >>> import Hyphasis as hfss
     >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
     
@@ -61,8 +61,8 @@ def quit_application(oDesktop):
     -------
     None
     
-    Example Usage
-    -------------
+    Examples
+    --------
     >>> import Hyphasis as hfss
     >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
     >>> hfss.quit_application(oDesktop)
