@@ -700,6 +700,47 @@ def subtract(oEditor, blanklist, toollist, KeepOriginals=False):
     
     return blanklist[0]
 
+def unite(oEditor, partlist, KeepOriginals=False):
+    """
+    Unite the specified objects.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.        
+    partlist : list
+        List of part name strings to be united.
+    KeepOriginals : bool
+        Whether to keep the original parts for subsequent operations.
+    
+    Returns
+    -------
+    objname : str
+        Name of object created by the unite operation
+        
+    Examples
+    --------
+    >>> import Hyphasis as hfss
+    >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
+    >>> oProject = hfss.new_project(oDesktop)
+    >>> oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
+    >>> oEditor = hfss.set_active_editor(oDesign, "3D Modeler")
+    >>> tri1 = hfss.create_polyline(oEditor, [0, 1, 0], [0, 0, 1], [0, 0, 0])
+    >>> tri2 = hfss.create_polyline(oEditor, [0, -1, 0], [0, 0, 1], [0, 0, 0])
+    >>> tri3 = hfss.unite(oEditor, [tri1, tri2])
+    """
+#    partliststr = ""
+#    for item in partlist:
+#        partliststr += (',' + item)
+    
+    selectionsarray = ["NAME:Selections", "Selections:=", ','.join(partlist)]
+    
+    uniteparametersarray = ["NAME:UniteParameters", "KeepOriginals:=", KeepOriginals]
+    
+    oEditor.Unite(selectionsarray, uniteparametersarray)
+    
+    return partlist[0]
+
 def scale(oEditor, partlist, x, y, z):
     """
     Scale specified parts.
