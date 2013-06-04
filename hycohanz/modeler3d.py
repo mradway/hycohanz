@@ -806,3 +806,53 @@ def get_edge_by_position(oEditor, bodyname, x, y, z):
     
     return edgeid
     
+def fillet(oEditor, partlist, edgelist, radius, vertexlist=[], setback=0):
+    """
+    Create fillets on the given edges.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list of strings
+        List of part name strings to be filleted.
+    edgelist : list of ints
+        List of edge indexes to be filleted.
+    radius : float
+        Radius of the fillet.
+    vertexlist : list
+        List of vertices to chamfer
+    setback : float
+        The setback distance.  See the HFSS help for an explanation of this 
+        parameter.
+    
+    Returns
+    -------
+    None
+    
+    Examples
+    --------
+    >>> import Hyphasis as hfss
+    >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
+    >>> oProject = hfss.new_project(oDesktop)
+    >>> oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
+    >>> oEditor = hfss.set_active_editor(oDesign, "3D Modeler")
+    >>> box1 = hfss.create_box(oEditor, 1, 1, 1, 0, 0, 0)
+    >>> edge1 = hfss.get_edge_by_position(oEditor, box1, 0.5, 0, 0)
+    >>> hfss.fillet(oEditor, [box1], [edge1], 0.25)
+    
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ','.join(partlist), 
+                       "NewPartsModelFlag:=", "Model"]
+                            
+    tempparams = ["NAME:FilletParameters", 
+                  "Edges:=", edgelist, 
+                  "Vertices:=", vertexlist, 
+                  "Radius:=",  Ex(radius).expr, 
+                  "Setback:=", str(setback)]
+    
+    filletparameters = ["NAME:Parameters", tempparams]
+                            
+    oEditor.Fillet(selectionsarray, filletparameters)
+    
