@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Module containing the HFSS expression class.
+The HFSS expression generator.
 
 """
 
