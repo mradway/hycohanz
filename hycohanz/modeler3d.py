@@ -771,3 +771,38 @@ def scale(oEditor, partlist, x, y, z):
                             "ScaleZ:=", str(z)]
   
     oEditor.Scale(selectionsarray, scaleparametersarray)
+def get_edge_by_position(oEditor, bodyname, x, y, z):
+    """
+    Get the edge of a given body that lies at a given position.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    bodyname : str
+        Name of the body whose edge will be returned
+    x : float
+        x position of the edge
+    y : float
+        y position of the edge
+    z : float
+        z position of the edge
+        
+    Returns
+    -------
+    edgeid : int
+        Id number of the edge.
+    """
+#    print(Ex(x).expr)
+#    print(Ex(y).expr)
+#    print(Ex(z).expr)
+    positionparameters = ["NAME:EdgeParameters", 
+                          "BodyName:=", bodyname,
+                          "Xposition:=", Ex(x).expr,
+                          "YPosition:=", Ex(y).expr,
+                          "ZPosition:=", Ex(z).expr]
+
+    edgeid = oEditor.GetEdgeByPosition(positionparameters)
+    
+    return edgeid
+    
