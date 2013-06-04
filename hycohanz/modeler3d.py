@@ -888,3 +888,32 @@ def get_face_by_position(oEditor, bodyname, x, y, z):
     
     return faceid
     
+def uncover_faces(oEditor, partlist, dictoffacelists):
+    """
+    Uncover specified faces.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list
+        List of part name strings whose faces will be uncovered.
+    dictoffacelists : dict
+        Dict containing part names as the keys, and lists of integer face 
+        ids as the values
+        
+    Returns
+    -------
+    None
+    """
+    selectionsarray = ["NAME:Selections", "Selections:=", ','.join(partlist)]
+
+    uncoverparametersarray = ["NAME:Parameters"]
+    for part in partlist:
+        uncoverparametersarray += [["NAME:UncoverFacesParameters", "FacesToUncover:=", dictoffacelists[part]]]
+
+    print('selectionsarray:  {s}'.format(s=selectionsarray))
+    print('uncoverparametersarray:  {s}'.format(s=uncoverparametersarray))
+
+    oEditor.UncoverFaces(selectionsarray, uncoverparametersarray)
+    
