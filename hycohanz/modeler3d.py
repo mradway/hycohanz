@@ -856,3 +856,35 @@ def fillet(oEditor, partlist, edgelist, radius, vertexlist=[], setback=0):
                             
     oEditor.Fillet(selectionsarray, filletparameters)
     
+def get_face_by_position(oEditor, bodyname, x, y, z):
+    """
+    Get the face of a given body that lies at a given position.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    bodyname : str
+        Name of the body whose face will be returned
+    x : float
+        x position of the face
+    y : float
+        y position of the face
+    z : float
+        z position of the face
+        
+    Returns
+    -------
+    faceid : int
+        Id number of the face.
+    """
+    positionparameters = ["NAME:Parameters", 
+                          "BodyName:=", bodyname,
+                          "Xposition:=", Ex(x).expr,
+                          "YPosition:=", Ex(y).expr,
+                          "ZPosition:=", Ex(z).expr]
+                          
+    faceid = oEditor.GetFaceByPosition(positionparameters)
+    
+    return faceid
+    
