@@ -557,3 +557,52 @@ def assign_perfect_h(oDesign, boundaryname, facelist):
     """
     oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
     oBoundarySetupModule.AssignPerfectH(["Name:" + boundaryname, "Faces:=", facelist])
+
+def assign_waveport_multimode(oDesign, 
+                              portname, 
+                              faceidlist, 
+                              Nmodes=1,
+                              RenormalizeAllTerminals=True,
+                              UseLineAlignment=False,
+                              DoDeembed=False,
+                              ShowReporterFilter=False,
+                              ReporterFilter=[True],
+                              UseAnalyticAlignment=False):
+    """
+    Assign a waveport excitation using multiple modes.
+    
+    Parameters
+    ----------
+    oDesign : pywin32 COMObject
+        The HFSS design to which this function is applied.
+    portname : str
+        Name of the port to create.
+    faceidlist : list
+        List of face id integers.
+    Nmodes : int
+        Number of modes with which to excite the port.
+        
+    Returns
+    -------
+    None
+    """
+    oBoundarySetupModule = get_module(oDesign, "BoundarySetup")
+    modesarray = ["NAME:Modes"]
+    for n in range(0, Nmodes):
+        modesarray.append(["NAME:Mode" + str(n + 1),
+                           "ModeNum:=", n + 1,
+                           "UseIntLine:=", False])
+
+    waveportarray = ["NAME:" + portname, 
+                     "Faces:=", faceidlist, 
+                     "NumModes:=", Nmodes, 
+                     "RenormalizeAllTerminals:=", RenormalizeAllTerminals, 
+                     "UseLineAlignment:=", UseLineAlignment, 
+                     "DoDeembed:=", DoDeembed, 
+                     modesarray, 
+                     "ShowReporterFilter:=", ShowReporterFilter, 
+                     "ReporterFilter:=", ReporterFilter, 
+                     "UseAnalyticAlignment:=", UseAnalyticAlignment]
+
+    oBoundarySetupModule.AssignWavePort(waveportarray)
+    
