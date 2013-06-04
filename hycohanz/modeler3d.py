@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jan 22 22:34:02 2012
-
-@author: radway
+HFSS functions that use the 3D modeler.
 """
 
 from __future__ import division, print_function, unicode_literals, absolute_import
