@@ -18,11 +18,13 @@ oEditor = hfss.set_active_editor(oDesign)
 
 raw_input('Press "Enter" to draw a red three-vertex polyline named Triangle1.>')
 
-hfss.create_polyline(oEditor, [1, 0, -1], 
-							  [0, 1, 0], 
-							  [0, 0, 0], 
-							  Name='Triangle1',
-							  Color="(255 0 0)")
+objname = hfss.create_polyline(
+    oEditor, [1, 0, -1], 
+    [0, 1, 0], 
+    [0, 0, 0], 
+    Name='Triangle1',
+    Color="(255 0 0)",
+    )
 
 raw_input('Press "Enter" to quit HFSS.>')
 
