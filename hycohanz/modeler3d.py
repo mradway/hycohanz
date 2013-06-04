@@ -917,3 +917,35 @@ def uncover_faces(oEditor, partlist, dictoffacelists):
 
     oEditor.UncoverFaces(selectionsarray, uncoverparametersarray)
     
+def connect(oEditor, partlist):
+    """
+    Connects specified 1-D parts to form a sheet, or specified 2-D parts to 
+    form a volume.:
+        
+    WARNING:  oEditor.Connect() is a very flaky operation, and the result can 
+    depend on the order that the parts are given to the operation among other 
+    seemingly random considerations.  It will very often fail on simple 
+    connect operations for no apparent reason.  
+    
+    If you have difficulty with very strange-looking Connect() operations, 
+    first try to make your parts have the same number of vertices.  Second, 
+    try reversing the order that you give the parts to Connect().
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.        
+    partlist : list
+        List of part name strings to be connected.
+    
+    Returns
+    -------
+    objname : str
+        Name of object created by the connect operation
+    """
+    selectionsarray = ["NAME:Selections", "Selections:=", ','.join(partlist)]
+    
+    oEditor.Connect(selectionsarray)
+    
+    return partlist[0]
+
