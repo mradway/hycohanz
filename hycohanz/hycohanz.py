@@ -20,6 +20,7 @@ warnings.simplefilter('default')
 
 from hycohanz.expression import Expression
 from hycohanz.modeler3d import *
+from Hyphasis.fieldscalculator import *
 
 def setup_interface():
     """
