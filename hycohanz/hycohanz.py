@@ -112,6 +112,27 @@ def set_active_editor(oDesign, editorname="3D Modeler"):
     
     return oEditor
 
+def set_active_design(oProject, designname):
+    """
+    Set the active design.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS design upon which to operate.
+    designname : str
+        Name of the design to set as active.
+    
+    Returns
+    -------
+    oDesign : pywin32 COMObject
+        The HFSS Design object.
+        
+    """
+    oEditor = oProject.SetActiveDesign(designname)
+    
+    return oEditor
+    
 def insert_design(oProject, designname, solutiontype):
     """
     Insert an HFSS design.  The scripting interface doesn't appear to support 
