@@ -771,6 +771,26 @@ def scale(oEditor, partlist, x, y, z):
                             "ScaleZ:=", str(z)]
   
     oEditor.Scale(selectionsarray, scaleparametersarray)
+
+def get_object_name_by_faceid(oEditor, faceid):
+    """
+    Return the object name corresponding to the given face ID.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    faceid : int
+        The face ID of the given face.
+    
+    Returns
+    -------
+    objname : str
+        The name of the object.
+
+    """
+    return oEditor.GetObjectNameByFaceID(faceid)
+
 def import_model(oEditor, 
                  sourcefile,
                  HealOption=1,
