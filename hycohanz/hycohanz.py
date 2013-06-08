@@ -606,4 +606,23 @@ def assign_waveport_multimode(oDesign,
                      "UseAnalyticAlignment:=", UseAnalyticAlignment]
 
     oBoundarySetupModule.AssignWavePort(waveportarray)
+
+def open_project(oDesktop, filename):
+    """
+    Open an HFSS project.
+    
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        The HFSS desktop object to which this function is applied.
+    filename : str
+        The name of the file to open.
+    
+    Returns
+    -------
+    oProject : pywin32 COMObject
+        An handle to the opened project.
+    
+    """
+    return oDesktop.OpenProject(filename)
     
