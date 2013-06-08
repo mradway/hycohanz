@@ -771,6 +771,63 @@ def scale(oEditor, partlist, x, y, z):
                             "ScaleZ:=", str(z)]
   
     oEditor.Scale(selectionsarray, scaleparametersarray)
+def import_model(oEditor, 
+                 sourcefile,
+                 HealOption=1,
+                 CheckModel=False,
+                 Options='-1',
+                 FileType='UnRecognized',
+                 MaxStitchTol=-1,
+                 ImportFreeSurfaces=False):
+    """
+    Import a 3D model from a file.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    sourcefile : str
+        Name of the 3D model file.
+        
+    Returns
+    -------
+    None
+    
+    Notes
+    -----
+    - This function is barely documented in the HFSS Scripting Guide.
+    - No documentation of the optional arguments is given because their 
+      equivalents are not documented in the HFSS Scripting Guide.
+    - There is no documented way to request a particular name for the created 
+      object.
+    - There is no documented way to obtain the name assigned to the created 
+      object.
+    
+    Examples
+    --------
+    >>> import Hyphasis as hfss
+    >>> [oAnsoftApp, oDesktop] = hfss.setup_interface()
+    >>> oProject = hfss.new_project(oDesktop)
+    >>> oDesign = hfss.insert_design(oProject, "HFSSDesign1", "DrivenModal")
+    >>> oEditor = hfss.set_active_editor(oDesign, "3D Modeler")
+    >>> hfss.import_model(oEditor, "Z:\shared\Parts\MachinescrewCap4-40_375mil\91251A108.SAT")
+    >>> hfss.import_model(oEditor, "Z:\shared\Parts\MachinescrewCap4-40_375mil\91251A108.IGS")
+    >>> hfss.import_model(oEditor, "Z:\shared\Parts\MachinescrewCap4-40_375mil\91251A108.STEP")
+    
+    """
+    import_params_array =["NAME:NativeBodyParameters", 
+                          "HealOption:=", HealOption, 
+                          "CheckModel:=", CheckModel, 
+                          "Options:=", Options, 
+                          "FileType:=", FileType, 
+                          "MaxStitchTol:=", MaxStitchTol, 
+                          "ImportFreeSurfaces:=", ImportFreeSurfaces, 
+                          "SourceFile:=", sourcefile]
+    
+    oEditor.Import(import_params_array)
+    
+    return get_selections(oEditor)
+
 def get_edge_by_position(oEditor, bodyname, x, y, z):
     """
     Get the edge of a given body that lies at a given position.
