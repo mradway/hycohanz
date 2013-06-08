@@ -1045,3 +1045,26 @@ def connect(oEditor, partlist):
     
     return partlist[0]
 
+def rename_part(oEditor, oldname, newname):
+    """
+    Rename a part.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed. 
+    oldname : str
+        The name of the part to rename
+    newname : str
+        The new name to assign to the part
+        
+    Returns
+    -------
+    None
+    
+    """
+    renameparamsarray = ["Name:Rename Data", "Old Name:=", oldname, "New Name:=", newname]
+    
+    return oEditor.RenamePart(renameparamsarray)
+
+
