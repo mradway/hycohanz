@@ -913,6 +913,33 @@ def fillet(oEditor, partlist, edgelist, radius, vertexlist=[], setback=0):
                             
     oEditor.Fillet(selectionsarray, filletparameters)
     
+def separate_body(oEditor, partlist, NewPartsModelFlag="Model"):
+    """
+    Separate bodies of the specified multi-lump object
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    partlist : list of str
+        List of object names to operate upon
+    NewPartsModelFlag : str
+        See the HFSS Scripting Guide.
+    
+    Returns
+    -------
+    newpartlist : list of str
+        List of objects created by the operation.
+    
+    """
+    selectionsarray = ["NAME:Selections", 
+                       "Selections:=", ",".join(partlist), 
+                       "NewPartsModelFlag:=", NewPartsModelFlag]
+
+    oEditor.SeparateBody(selectionsarray)
+    
+    return (partlist[0],) + get_selections(oEditor)
+    
 def delete(oEditor, partlist):
     """
     Delete selected objects, coordinate systems, points, planes, and others.
