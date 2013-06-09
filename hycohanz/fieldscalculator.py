@@ -103,7 +103,45 @@ def enter_qty(oFieldsReporter, FieldQuantityString):
     
     
     
+def get_top_entry_value(oModule, setupname, sweepname, freq, phase, variablesdict):
+    """
+    Evaluates the expression at the top of the stack using the provided 
+    solution name and variable values.
 
+    Parameters
+    ----------
+    oModule : pywin32 COMObject
+        An HFSS "FieldsReporter" module 
+    SolutionName : str
+        Name of solution to use, for example "Setup1 : LastAdaptive"
+    Freq : float
+        Frequency at which to evaluate the calculator expression.
+    Phase : float
+        Phase in degrees at which to evaluate the calculator expression.
+    variablesdict : dict
+        Dictionary listing the variables and their values that define the 
+        design variation, except for 'Freq' and 'Phase'.  Variable names are the keys (strings), and the values are 
+        the values of the variable (floats). For example: {'radius': 0.5, 'height': '2.0'}
+        
+    Returns
+    -------
+    result : str
+        A string representation of the value at the top of the Calculator stack.
+        
+    """
+    solutionname = setupname + " : " + sweepname
+    
+    variablesarray = ["Freq:=", str(freq) + 'Hz', "Phase:=", str(phase) + 'deg']
+    
+    for key in variablesdict:
+        variablesarray += [str(key) + ':=', str(variablesdict[key])]
+        
+    print('solutionname: ' + str(solutionname))
+    print('variablesarray: ' + str(variablesarray))
+    
+    result = oModule.GetTopEntryValue(solutionname, variablesarray)
+
+    return result
 
 if __name__ == "__main__":
     import doctest
