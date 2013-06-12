@@ -22,23 +22,40 @@ raw_input('Press "Enter" to get a handle to the Fields Reporter module.>')
 
 oFieldsReporter = hfss.get_module(oDesign, 'FieldsReporter')
 
-raw_input('Press "Enter" to enter the field quantity "E" in the Fields Calculator.>')
+raw_input(
+    'Press "Enter" to enter the field quantity "E" in the Fields Calculator.>')
 
 hfss.enter_qty(oFieldsReporter, 'E')
 
-raw_input('Open the calculator to verify that the Calculator input reads "CVc : <Ex,Ey,Ez>">')
+raw_input(
+    """
+    Open the calculator to verify that the 
+    Calculator input reads "CVc : <Ex,Ey,Ez>">
+    """)
 
 hfss.calc_op(oFieldsReporter, 'Mag')
 
-raw_input('Close and reopen Calculator to verify that the "Mag" function has been applied.>')
+raw_input(
+    """
+    Close and reopen Calculator to verify that 
+    the "Mag" function has been applied.>
+    """)
 
 hfss.enter_vol(oFieldsReporter, 'Polyline1')
 
-raw_input('Close and reopen Calculator to verify that the evaluation volume is entered.>')
+raw_input(
+    """
+    Close and reopen Calculator to verify 
+    that the evaluation volume is entered.>
+    """)
 
 hfss.calc_op(oFieldsReporter, 'Maximum')
 
-raw_input('Close and reopen Calculator to verify that the "Maximum" function is entered.>')
+raw_input(
+    """
+    Close and reopen Calculator to verify 
+    that the "Maximum" function is entered.>
+    """)
 
 hfss.clc_eval(
     oFieldsReporter, 
