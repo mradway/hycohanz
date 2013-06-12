@@ -86,7 +86,7 @@ def clc_eval(oFieldsReporter, setupname, sweepname, freq, phase, variablesdict):
     
 def enter_qty(oFieldsReporter, FieldQuantityString):
     """
-    Enter a field quantity.
+    Enter a field quantity into the Fields Calculator.
     
     Parameters
     ----------
