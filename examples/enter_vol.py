@@ -67,6 +67,7 @@ raw_input('Press "Enter" to quit HFSS.>')
 
 hfss.quit_application(oDesktop)
 
+del oFieldsReporter
 del oDesign
 del oProject
 del oDesktop
