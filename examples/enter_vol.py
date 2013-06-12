@@ -1,3 +1,6 @@
+"""
+Demonstrate usage of the enter_vol() function.
+"""
 import hycohanz as hfss
 import os.path
 
