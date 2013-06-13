@@ -115,6 +115,83 @@ def create_rectangle(   oEditor,
                     "SolveInside:=", SolveInside]
                     
     return oEditor.CreateRectangle(RectangleParameters, Attributes)
+    
+def create_EQbasedcurve(   oEditor, 
+                        xt, 
+                        yt, 
+                        zt, 
+                        tstart, 
+                        tend,
+                        numpoints,
+                        Version=1, 
+                        Name='EQcurve1', 
+                        Flags='', 
+                        Color=(132, 132, 193), 
+                        Transparency=0, 
+                        PartCoordinateSystem='Global',
+                        UDMId='',
+                        MaterialValue='"vacuum"',
+                        SolveInside=True):
+    """
+    Draw an equation based curve.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    xt : equation for the x axis, equation must be a string
+    yt : equation for the y axis, equation must be a string
+    zt : equation for the z axis, equation must be a string
+    tstart : the start of variable _t, must be a string
+    tend : then end of variable _t, must be a string
+    numpoints : The number of points that the curve is made of,
+        enter 0 for a continuous line, must be a string
+    Version Number : ?
+        Unsure what this does
+    Name : str
+        The requested name of the object.  If this is not available, HFSS 
+        will assign a different name, which is returned by this function.
+    Flags : str
+        Flags associated with this object.  See HFSS help for details.
+    Color : tuple of length=3
+        RGB components of the circle
+    Transparency : float between 0 and 1
+        Fractional transparency.  0 is opaque and 1 is transparent.
+    PartCoordinateSystem : str
+        The name of the coordinate system in which the object is drawn.
+    MaterialName : str
+        Name of the material to assign to the object.  Name must be surrounded 
+        by double quotes.
+    SolveInside : bool
+        Whether to mesh the interior of the object and solve for the fields 
+        inside.
+        
+    Returns
+    -------
+    str
+        The actual name of the created object.
+        
+    """
+    EquationCurveParameters = [ "NAME:EquationBasedCurveParameters",
+                            "XtFunction:=", xt,
+                            "YtFunction:=", yt,
+                            "ZtFunction:=", zt,
+                            "tStart:=", tstart,
+                            "tEnd:=", tend,
+                            "NumOfPointsOnCurve:=", numpoints,
+                            "Version:=", Version]
+
+    Attributes = [  "NAME:Attributes",
+                    "Name:=", Name,
+                    "Flags:=", Flags,
+                    "Color:=", "({r} {g} {b})".format(r=Color[0], g=Color[1], b=Color[2]),
+                    "Transparency:=", Transparency,
+                    "PartCoordinateSystem:=", PartCoordinateSystem,
+                    "UDMId:=", UDMId,
+                    "MaterialValue:=", MaterialValue,
+                    "SolveInside:=", SolveInside]
+                    
+    return oEditor.CreateEquationCurve(EquationCurveParameters, Attributes)
 
 def create_circle(oEditor, xc, yc, zc, radius, 
                   WhichAxis='Z', 
