@@ -332,7 +332,9 @@ def set_active_design(oProject, designname):
     
 def insert_design(oProject, designname, solutiontype):
     """
-    Insert an HFSS design.  The scripting interface doesn't appear to support 
+    Insert an HFSS design.  The inserted design becomes the active design.
+    
+    Note:  The scripting interface doesn't appear to support 
     creation of HFSS-IE designs at this time, or is undocumented.
     
     Parameters
