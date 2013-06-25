@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 24 19:58:31 2013
+HFSS functions that use the Project module. Functions in this module correspond 
+more or less to the functions described in the HFSS Scripting Guide, 
+Section "Project Object Script Commands".
 
-@author: radway
+At last count there were 3 functions implemented out of 17.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 

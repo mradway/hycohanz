@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 24 20:37:00 2013
+HFSS functions that use the Property module. Functions in this module correspond 
+more or less to the functions described in the HFSS Scripting Guide, 
+Section "Property Script Commands".
 
-@author: radway
+At last count there were 1 functions implemented out of 7.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 

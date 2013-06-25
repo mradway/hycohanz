@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 24 20:47:29 2013
+Functions in this module correspond more or less to the functions described 
+in the HFSS Scripting Guide, Section "Boundary and Excitation Module Script 
+Commands".
 
-@author: radway
+At last count there were 4 functions implemented out of 20.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 

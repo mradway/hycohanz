@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 24 20:39:57 2013
+Functions in this module correspond more or less to the functions described 
+in the HFSS Scripting Guide, Section "Analysis Setup Module Script Commands"
 
-@author: radway
+At last count there were 2 functions implemented out of 20.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 

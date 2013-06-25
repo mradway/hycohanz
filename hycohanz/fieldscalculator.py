@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-HFSS Fields Calculator functions.
+HFSS Fields Calculator functions. Functions in this module correspond more or 
+less to the functions described in the HFSS Scripting Guide, Section "Fields 
+Calculator Script Commands".
 
+At last count there were 5 functions implemented out of 28.
 """
 
 from __future__ import division, print_function, unicode_literals, absolute_import

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 24 19:45:59 2013
+Functions in this module correspond more or less to the functions described 
+in the HFSS Scripting Guide, Section "Desktop Object Script Commands".
 
-@author: radway
+At last count there were 10 functions implemented out of 31.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 
