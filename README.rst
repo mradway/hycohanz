@@ -31,7 +31,11 @@ Dozens more examples_ are included in the examples directory of the source distr
 Quick Install
 -------------
 
-Installation is easy if you already have HFSS, Python, and the pywin32 Python package:
+Installation is easy if you already have HFSS_, Python_, and the pywin32_ Windows extensions for Python:
+
+.. _HFSS: http://www.ansys.com/Products/Simulation+Technology/Electromagnetics/Signal+Integrity/ANSYS+HFSS
+.. _Python:  http://www.python.org
+.. _pywin32:  http://sourceforge.net/projects/pywin32/
 
 1. Download the `.zip file`_ from Github.
 
