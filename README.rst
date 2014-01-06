@@ -58,6 +58,10 @@ This issue tracker is useful if you
 - have a question,
 - would like to see a feature implemented.
 
+Of course, you can also email_ me privately.
+
+.. _email:  mailto:mradway@gmail.com
+
 Features
 --------
 hycohanz provides convenience functions for the following:
