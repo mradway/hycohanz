@@ -4,7 +4,7 @@ HFSS functions that use the 3D modeler. Functions in this module correspond
 more or less to the functions described in the HFSS Scripting Guide, 
 Section "3D Modeler Editor Script Commands".
 
-At last count there were 30 functions implemented out of 93.
+At last count there were 31 functions implemented out of 93.
 """
 
 from __future__ import division, print_function, unicode_literals, absolute_import
@@ -14,6 +14,28 @@ import warnings
 from hycohanz.expression import Expression as Ex
 
 warnings.simplefilter('default')
+
+def get_matched_object_name(oEditor, name_filter="*"):
+    """
+    Returns a list of objects that match the input filter.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    name_filter : str
+        Wildcard text to search.  Should contain '*' wildcard character for tuples.
+        
+    Returns
+    -------
+    part : list
+        List of object names matched to the filter.
+    
+    """
+
+    selections = oEditor.GetMatchedObjectName(name_filter)
+    
+    return list(selections)
 
 def assign_material(oEditor, partlist, MaterialName="vacuum", SolveInside=True):
     """
