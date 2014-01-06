@@ -119,12 +119,6 @@ https://github.com/mradway/hycohanz/archive/devel.zip
 
 Of course, one can also pull the source tree in the usual way using git.
 
-Installation
-------------
-See http://mradway.github.io/hycohanz/ for detailed installation instructions.  
-This page also has a minimal example that can be used to test hycohanz 
-once installation is complete.  
-
 Documentation
 -------------
 
