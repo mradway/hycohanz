@@ -10,8 +10,8 @@ If you find a script that doesn't work and you believe it's a bug, please create
 .. _`issue tracker`: https://github.com/mradway/hycohanz/issues
 .. _email:  mailto:mradway@gmail.com
 
-Note on Windows COM Object Bookkeeping
---------------------------------------
+Important Note on Windows COM Object Bookkeeping
+------------------------------------------------
 
 To keep the examples as simple as possible, almost all of these scripts interact with HFSS in the following manner:
 
@@ -36,24 +36,16 @@ Of course, you can attempt to deal with this issue by wrapping each hycohanz cal
 
 .. _`context manager`: http://legacy.python.org/dev/peps/pep-0343/
 
-The new usage pattern ends up looking like the following:
+The new usage pattern ends up looking like the following (adapted from add_property.py):
 
 .. sourcecode:: python
     import hycohanz as hfss
     
-    raw_input('Press "Enter" to connect to HFSS.>')
-    
-    with hfss.App() as App:
-        raw_input('Press "Enter" to create a new project.>')
-        
+    with hfss.App() as App:       
         with hfss.NewProject(App.oDesktop) as P:
-            
-            raw_input('Press "Enter" to insert a new DrivenModal design named HFSSDesign1.>')
-            
             with hfss.InsertDesign(P.oProject, "HFSSDesign1", "DrivenModal") as D:
-                raw_input('Press "Enter" to insert a new property into the design named "length", having a value of "1m".>')
-            
                 hfss.add_property(D.oDesign, "length", hfss.Expression("1m"))
             
                 raw_input('Press "Enter" to quit HFSS.>')
 
+Note that all of the explicit setup and teardown code in the old version is missing in the new version; yet, all allocation is handled properly (that is, assuming the hycohanz context managers are implemented correctly).  The setup and teardown logic has been "factored out" (to use a software engineering term) to the hycohanz library, making your scripts cleaner and clearer.
