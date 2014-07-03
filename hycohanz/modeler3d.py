@@ -358,6 +358,86 @@ def create_sphere(oEditor, x, y, z, radius,
     
     return part
 
+def create_box( oEditor, 
+                xpos, 
+                ypos, 
+                zpos, 
+                xsize, 
+                ysize,
+                zsize,
+                Name='Box1', 
+                Flags='', 
+                Color=(132, 132, 193), 
+                Transparency=0, 
+                PartCoordinateSystem='Global',
+                UDMId='',
+                MaterialValue='"vacuum"',
+                SolveInside=True,
+                IsCovered=True,
+                ):
+    """
+    Draw a 3D box.
+
+    Note:  This function was contributed by Github user el-drive.
+
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    xpos : float or hycohanz Expression object
+    ypos : float or hycohanz Expression object
+    zpos : float or hycohanz Expression object
+        The x, y, and z coordinates of the base point of the box.
+    xsize : float or hycohanz Expression object
+    ysize : float or hycohanz Expression object
+    zsize : float or hycohanz Expression object
+        x-, y-, and z-dimensions of the box
+    Name : str
+        The requested name of the object.  If this is not available, HFSS 
+        will assign a different name, which is returned by this function.
+    Flags : str
+        Flags associated with this object.  See HFSS Scripting Guide for details.
+    Color : tuple of length=3
+        RGB components of the circle
+    Transparency : float between 0 and 1
+        Fractional transparency.  0 is opaque and 1 is transparent.
+    PartCoordinateSystem : str
+        The name of the coordinate system in which the object is drawn.
+    MaterialName : str
+        Name of the material to assign to the object.  Name must be surrounded 
+        by double quotes.
+    SolveInside : bool
+        Whether to mesh the interior of the object and solve for the fields 
+        inside.
+    IsCovered : bool
+        Whether the rectangle is has a surface or has only edges.
+
+    Returns
+    -------
+    str
+        The actual name of the created object.
+
+    """
+    BoxParameters = [ "NAME:BoxParameters",
+                    "XPosition:=", Ex(xpos).expr,
+                    "YPosition:=", Ex(ypos).expr,
+                    "ZPosition:=", Ex(zpos).expr,
+                    "XSize:=", Ex(xsize).expr,
+                    "YSize:=", Ex(ysize).expr,
+                    "ZSize:=", Ex(zsize).expr]
+
+    Attributes = [  "NAME:Attributes",
+                    "Name:=", Name,
+                    "Flags:=", Flags,
+                    "Color:=", "({r} {g} {b})".format(r=Color[0], g=Color[1], b=Color[2]),
+                    "Transparency:=", Transparency,
+                    "PartCoordinateSystem:=", PartCoordinateSystem,
+                    "UDMId:=", UDMId,
+                    "MaterialValue:=", MaterialValue,
+                    "SolveInside:=", SolveInside]
+
+    return oEditor.CreateBox(BoxParameters, Attributes)    
+
 def create_polyline(oEditor, x, y, z, Name="Polyline1", 
                                 Flags="", 
                                 Color="(132 132 193)", 
