@@ -58,3 +58,23 @@ def set_active_editor(oDesign, editorname="3D Modeler"):
     
     return oEditor
 
+def solve(oDesign,setup_name_list):
+    """
+    Solve Setup.
+
+    Parameters
+    ----------
+    oDesktop : pywin32 COMObject
+        HFSS Desktop object.
+    
+    Returns
+    -------
+    None
+    
+    Examples
+    --------
+    >>> import Hyphasis as hfss
+    >>> 
+    
+    """
+    return oDesign.Solve([setup_name_list])
