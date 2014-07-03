@@ -197,7 +197,7 @@ def open_project(oDesktop, filename):
     """
     return oDesktop.OpenProject(filename)
 
-def saveas_project(oDesktop, filename,overwrite=True):
+def save_as_project(oDesktop, filename,overwrite=True):
     """
     Save As an HFSS project.
     
