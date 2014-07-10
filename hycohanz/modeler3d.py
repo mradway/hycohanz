@@ -1164,7 +1164,7 @@ def delete(oEditor, partlist):
                        
     return oEditor.Delete(selectionsarray)
 
-    
+
 def split(oEditor, partlist, 
           NewPartsModelFlag="Model", 
           SplitPlane='XY', 
@@ -1319,4 +1319,23 @@ def rename_part(oEditor, oldname, newname):
     
     return oEditor.RenamePart(renameparamsarray)
 
+def get_face_ids(oEditor, body_name):
+    """
+    Get the face id list of a given body name.
+    
+    Parameters
+    ----------
+    oEditor : pywin32 COMObject
+        The HFSS editor in which the operation will be performed.
+    body_name : str
+        Name of the body whose face id list will be returned
+        
+    Returns
+    -------
+    face_id_list : list of int
+        list with face Id numbers of body_name
+    """
+
+    face_id_list = list(oEditor.GetFaceIDs(body_name))
+    return map(int,face_id_list)
 
