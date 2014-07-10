@@ -74,3 +74,43 @@ def insert_design(oProject, designname, solutiontype):
     
     return oDesign
 
+def get_design(oProject, design_name):
+    """
+    Returns specified design.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS project in which the operation will be performed.
+    designname : str
+        Name of the design to insert.
+        
+    Returns
+    -------
+    oDesign : pywin32 COMObject
+        The specified HFSS design.
+        
+    """
+    oDesign = oProject.GetDesign(design_name)
+    return oDesign
+
+def get_top_design_list(oProject):
+    """
+    Returns a list of the names of the top-level designs.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS project in which the operation will be performed.
+    designname : str
+        Name of the design to insert.
+        
+    Returns
+    -------
+    design_list : list of str
+        The top-level design list.
+        
+    """
+    design_list = list(oProject.GetTopDesignList())
+    return map(str,design_list)
+

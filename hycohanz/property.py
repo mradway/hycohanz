@@ -62,3 +62,28 @@ def set_variable(oProject, name, value):
     else:
 		oDesign = oProject.GetActiveDesign()
 		oDesign.SetVariableValue(name,Expression(value).expr)
+		
+def get_variables(oProject,oDesign=''):
+    """
+    get list of non-indexed variables.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS design from which to retrieve the variables.
+    oDesign : pywin32 COMObject
+        Optional, if specified function returns variable list of oDesign.
+
+        
+    Returns
+    -------
+    variable_list: list of str
+	list of non-indexed project/design variables
+    
+    """
+    if oDesign=='':
+        variable_list = list(oProject.GetVariables())
+    else:
+        variable_list = list(oDesign.GetVariables())
+    return map(str,variable_list)
+

@@ -31,11 +31,9 @@ from hycohanz.desktop import (quit_application,
                               close_all_projects, 
                               close_all_projects_except_current)
 
-from hycohanz.project import (get_project_name, 
-                              set_active_design, 
-                              insert_design)
+from hycohanz.project import *
 
-from hycohanz.property import add_property
+from hycohanz.property import *
 
 from hycohanz.design import (get_module, 
                              set_active_editor)
