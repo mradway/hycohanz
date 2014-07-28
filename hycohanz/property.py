@@ -65,3 +65,4 @@ def set_variable(oProject, name, value):
     else:
 		oDesign = oProject.GetActiveDesign()
 		oDesign.SetVariableValue(name,Expression(value).expr)
+
