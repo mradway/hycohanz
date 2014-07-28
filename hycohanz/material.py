@@ -32,6 +32,20 @@ def add_material(oDesktop,
     ----------
     oDesktop : pywin32 COMObject
         HFSS Desktop object.
+    material_name : str
+        Name of the added material.
+    rel_permittivity : float
+    rel_permeability : float
+    cond : float
+    diel_loss_tan : float
+    mag_loss_tan : float
+    mag_saturation : float
+    lande_g : float
+    delta_h : float
+        The relative permittivity, relative permeability, electric 
+        conductivity, dielectric loss tangent, magnetic loss tangent, 
+        magnetic saturation, Lande G factor, and delta_h associated with 
+        the added material.
     
     Returns
     -------
