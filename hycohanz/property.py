@@ -41,7 +41,10 @@ def add_property(oDesign, name, value):
 
 def set_variable(oProject, name, value):
     """
-    Change a design property.
+    Change a design property.  This function differs significantly from 
+    SetVariableValue() in that it makes the reasonable assumption that 
+    if the variable contains '$', then the variable is global; otherwise, 
+    it is assumed to be a local variable.
     
     Parameters
     ----------
