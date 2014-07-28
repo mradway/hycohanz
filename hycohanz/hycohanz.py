@@ -42,6 +42,7 @@ from hycohanz.design import (get_module,
 
 from hycohanz.expression import Expression
 from hycohanz.modeler3d import *
+from hycohanz.material import *
 
 from hycohanz.analysis_setup import (insert_frequency_sweep, 
                                      insert_analysis_setup)

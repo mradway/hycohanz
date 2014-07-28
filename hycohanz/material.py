@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Functions in this module correspond more or less to the functions described 
-in the HFSS Scripting Guide, Section "Material Script Commands".
+in the HFSS Scripting Guide (v 2013.11), Section "Material Script Commands".
 
 At last count there were 2 functions implemented out of 5.
 """
