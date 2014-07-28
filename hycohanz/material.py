@@ -59,6 +59,7 @@ def add_material(oDesktop,
     oProject = get_active_project(oDesktop)
     if does_material_exist(oProject,material_name):
         msg = material_name + " already exists in the local library. No material was created"
+        warnings.warn(msg)
         return msg
     else:
         mat_param = ["NAME:"+material_name,"permittivity:=",
