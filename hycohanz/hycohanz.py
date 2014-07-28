@@ -35,7 +35,9 @@ from hycohanz.project import (get_project_name,
                               set_active_design, 
                               insert_design)
 
-from hycohanz.property import *
+from hycohanz.property import ( add_property,
+                                set_variable,
+                                )
 
 from hycohanz.design import (get_module, 
                              set_active_editor)
