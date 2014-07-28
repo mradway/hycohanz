@@ -379,7 +379,7 @@ def create_box( oEditor,
     """
     Draw a 3D box.
 
-    Note:  This function was contributed by Github user el-drive.
+    Note:  This function was contributed by C. A. Donado Morcillo.
 
     Parameters
     ----------
