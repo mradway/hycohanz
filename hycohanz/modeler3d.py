@@ -99,7 +99,7 @@ def create_rectangle(   oEditor,
         The requested name of the object.  If this is not available, HFSS 
         will assign a different name, which is returned by this function.
     Flags : str
-        Flags associated with this object.  See HFSS help for details.
+        Flags associated with this object.  See HFSS Scripting Guide for details.
     Color : tuple of length=3
         RGB components of the circle
     Transparency : float between 0 and 1
@@ -141,7 +141,8 @@ def create_rectangle(   oEditor,
                     "SolveInside:=", SolveInside]
                     
     return oEditor.CreateRectangle(RectangleParameters, Attributes)
-    
+
+
 def create_EQbasedcurve(   oEditor, 
                         xt, 
                         yt, 
