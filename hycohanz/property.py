@@ -39,4 +39,26 @@ def add_property(oDesign, name, value):
           
     oDesign.ChangeProperty(["NAME:AllTabs", proptabarray])
 
-
+def set_variable(oProject, name, value):
+    """
+    Change a design property.
+    
+    Parameters
+    ----------
+    oProject : pywin32 COMObject
+        The HFSS design from which to retrieve the module.
+    name : str
+        The name of the property/variable to edit.
+    value : Hyphasis Expression object
+        The new value of the property.
+        
+    Returns
+    -------
+    None
+    
+    """
+    if '$' in name: 
+		oProject.SetVariableValue(name,Expression(value).expr)
+    else:
+		oDesign = oProject.GetActiveDesign()
+		oDesign.SetVariableValue(name,Expression(value).expr)
