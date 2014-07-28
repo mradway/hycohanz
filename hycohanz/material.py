@@ -62,15 +62,15 @@ def add_material(oDesktop,
         warnings.warn(msg)
         return msg
     else:
-        mat_param = ["NAME:"+material_name,"permittivity:=",
-					rel_permittivity,
-					"permeability:=",rel_permeability,
-					"conductivity:=",cond,
-					"dielectric_loss_tangent:=", diel_loss_tan, 
-					"magnetic_loss_tangent:=", mag_loss_tan, 
-					"saturation_mag:=", mag_saturation,
-					"lande_g_factor:=", lande_g,
-					"delta_H:=", delta_h]
+        mat_param = ["NAME:"+material_name,
+                    "permittivity:=", rel_permittivity,
+                    "permeability:=", rel_permeability,
+                    "conductivity:=", cond,
+                    "dielectric_loss_tangent:=", diel_loss_tan, 
+                    "magnetic_loss_tangent:=", mag_loss_tan, 
+                    "saturation_mag:=", mag_saturation,
+                    "lande_g_factor:=", lande_g,
+                    "delta_H:=", delta_h]
         oDefinitionManager = oProject.GetDefinitionManager()
         return oDefinitionManager.AddMAterial(mat_param)
 
