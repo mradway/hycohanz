@@ -3,7 +3,7 @@
 Functions in this module correspond more or less to the functions described 
 in the HFSS Scripting Guide, Section "Material Script Commands".
 
-At last count there were 1 functions implemented out of 1.
+At last count there were 2 functions implemented out of 5.
 """
 from __future__ import division, print_function, unicode_literals, absolute_import
 
